@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RADAR Today</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="radar-shell" aria-labelledby="page-title">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">INVESTMENT DECISION SYSTEM</p>
+        <h1 id="page-title">RADAR <span>Today</span></h1>
+        <p class="subtitle">Что требует внимания сейчас</p>
+      </div>
+      <div class="system-state" aria-label="Состояние системы">
+        <span class="state-dot" aria-hidden="true"></span>
+        <div><strong>Система активна</strong><small>Только подтверждённые решения</small></div>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="Сводка">
+      <div><span>В фокусе</span><strong id="item-count">0</strong></div>
+      <div><span>Критичных</span><strong id="critical-count">0</strong></div>
+      <div><span>Обновлено</span><strong id="updated-at">—</strong></div>
+    </section>
+
+    <aside class="market-context" aria-labelledby="market-title">
+      <div><p class="eyebrow">MARKET / MACRO</p><h2 id="market-title">Контекст рынка</h2></div>
+      <div id="market-summary" class="market-summary"><strong id="market-action">Нет подтверждённого контекста</strong><span id="market-why">MARKET Decision отсутствует</span></div>
+      <div class="market-provenance"><span id="market-quality">UNKNOWN</span><time id="market-time">—</time></div>
+    </aside>
+
+    <section class="today-panel" aria-labelledby="today-title">
+      <div class="section-heading"><div><p class="eyebrow">RADAR TODAY</p><h2 id="today-title">Решения на сегодня</h2></div><span class="scope-note">до 7 важных элементов</span></div>
+      <nav class="view-tabs" aria-label="Продуктовые представления">
+        <button type="button" class="view-tab is-active" data-view="ALL" aria-pressed="true">Все</button>
+        <button type="button" class="view-tab" data-view="DIAMONDS" aria-pressed="false">Diamonds</button>
+        <button type="button" class="view-tab" data-view="SIGNALS" aria-pressed="false">Signals</button>
+        <button type="button" class="view-tab" data-view="INVESTOR" aria-pressed="false">Investors</button>
+        <button type="button" class="view-tab" data-view="PORTFOLIO" aria-pressed="false">Portfolio</button>
+      </nav>
+      <div id="today-list" class="today-list" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state"><span class="empty-mark">✓</span><h3>Важных решений сейчас нет</h3><p>Пустой RADAR Today — корректный результат. Система не создаёт события искусственно.</p></div>
+    </section>
+
+    <footer><span>RADAR / PRESENT</span><span>FACT ≠ ANALYSIS ≠ DECISION</span></footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
