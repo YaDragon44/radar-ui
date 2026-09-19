@@ -24,6 +24,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Артген",
           "ticker": "ABIO",
+          "boardid": "TQBR",
           "quantity": 20,
           "unit": "shares",
           "quantity_label": "20"
@@ -31,6 +32,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Астра",
           "ticker": "ASTR",
+          "boardid": "TQBR",
           "quantity": 60,
           "unit": "shares",
           "quantity_label": "60"
@@ -38,6 +40,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "ВК",
           "ticker": "VKCO",
+          "boardid": "TQBR",
           "quantity": 38,
           "unit": "shares",
           "quantity_label": "38"
@@ -45,6 +48,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "М.Видео",
           "ticker": "MVID",
+          "boardid": "TQBR",
           "quantity": 5,
           "unit": "shares",
           "quantity_label": "5"
@@ -52,6 +56,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Мечел",
           "ticker": "MTLR",
+          "boardid": "TQBR",
           "quantity": 6,
           "unit": "shares",
           "quantity_label": "6"
@@ -59,6 +64,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "ММК",
           "ticker": "MAGN",
+          "boardid": "TQBR",
           "quantity": 270,
           "unit": "shares",
           "quantity_label": "270"
@@ -66,6 +72,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "НМТП",
           "ticker": "NMTP",
+          "boardid": "TQBR",
           "quantity": 2200,
           "unit": "shares",
           "quantity_label": "2 200"
@@ -73,6 +80,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Новатэк",
           "ticker": "NVTK",
+          "boardid": "TQBR",
           "quantity": 28,
           "unit": "shares",
           "quantity_label": "28"
@@ -80,6 +88,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Роснефть",
           "ticker": "ROSN",
+          "boardid": "TQBR",
           "quantity": 50,
           "unit": "shares",
           "quantity_label": "50"
@@ -87,6 +96,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Россети",
           "ticker": "FEES",
+          "boardid": "TQBR",
           "quantity": 280000,
           "unit": "shares",
           "quantity_label": "280 000"
@@ -94,6 +104,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "ТГК-1",
           "ticker": "TGKA",
+          "boardid": "TQBR",
           "quantity": 600000,
           "unit": "shares",
           "quantity_label": "600 000"
@@ -101,6 +112,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "ЦИАН",
           "ticker": "CNRU",
+          "boardid": "TQBR",
           "quantity": 9,
           "unit": "shares",
           "quantity_label": "9"
@@ -108,6 +120,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Фонд Тинькофф Индекс Мосбиржи",
           "ticker": "TMOS",
+          "boardid": "TQTF",
           "quantity": 44,
           "unit": "lots",
           "quantity_label": "44 лота"
