@@ -120,7 +120,7 @@ window.RADAR_PORTFOLIO = [
         {
           "name": "Фонд Тинькофф Индекс Мосбиржи",
           "ticker": "TMOS",
-          "boardid": "TQTF",
+          "boardid": "TQBR",
           "quantity": 44,
           "unit": "lots",
           "quantity_label": "44 лота"
