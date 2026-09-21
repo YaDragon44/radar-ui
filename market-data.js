@@ -9,9 +9,9 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2265.65,
+    "imoex": 2261.45,
     "crash": {
-      "score": 27.76,
+      "score": 33.19,
       "state": "CAUTION",
       "available_weight": 0.72,
       "critical_confirmations": 0,
@@ -21,7 +21,7 @@ window.RADAR_MARKET = {
       "exit_gate": {
         "stage": "CASH_CONFIRMED",
         "cash_confirmed": true,
-        "latest_5d_return_pct": -4.04,
+        "latest_5d_return_pct": -4.22,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -34,19 +34,19 @@ window.RADAR_MARKET = {
         },
         "last_event_day": "2026-08-17"
       },
-      "crash_momentum": 23.62
+      "crash_momentum": 29.05
     },
     "health": {
       "breadth": {
         "universe_size": 24,
         "usable_size": 24,
         "coverage": 1.0,
-        "pct_above_ma20": 33.33,
+        "pct_above_ma20": 37.5,
         "pct_above_ma50": 33.33,
-        "pct_new_20d_lows": 8.33,
-        "pct_new_20d_highs": 0.0,
-        "advance_decline_ratio": 1.0,
-        "breadth_return_5d": -0.91,
+        "pct_new_20d_lows": 20.83,
+        "pct_new_20d_highs": 4.17,
+        "advance_decline_ratio": 0.5,
+        "breadth_return_5d": -1.18,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -57,14 +57,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 50.72,
+        "score": 51.24,
         "quality": "LIVE",
         "key_rate": 14.0,
         "key_rate_day": "2026-09-21",
-        "median_long_ofz_yield": 16.18,
+        "median_long_ofz_yield": 16.21,
         "ofz_count": 30,
-        "rgbi_return_5d": 0.3,
-        "rgbi_return_20d": -0.64,
+        "rgbi_return_5d": 0.13,
+        "rgbi_return_20d": -0.81,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -79,8 +79,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": 0.1,
-        "cnyrub_return_20d": 0.7,
+        "cnyrub_return_5d": -0.41,
+        "cnyrub_return_20d": 0.18,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -688,7 +688,7 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-09-21",
-        "score": 27.76,
+        "score": 33.19,
         "state": "CAUTION"
       }
     ]
