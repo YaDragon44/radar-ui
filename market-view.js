@@ -65,7 +65,7 @@ function renderMarket(){
  if(empty)empty.hidden=true;
 }
 function bind(){
- document.querySelectorAll(".view-tab").forEach(b=>b.addEventListener("click",()=>{const active=b.dataset.view==="MARKET";document.body.classList.toggle("market-mode",active);if(active)setTimeout(renderMarket,0)}));
+ document.querySelectorAll(".view-tab").forEach(b=>b.addEventListener("click",()=>{const active=b.dataset.view==="MARKET";document.body.classList.toggle("market-mode",active);document.querySelector(".summary").hidden=active;document.querySelector(".section-heading").hidden=active;if(active)setTimeout(renderMarket,0)}));
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();
 })();
