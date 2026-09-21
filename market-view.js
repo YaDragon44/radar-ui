@@ -32,13 +32,15 @@ function renderMarket(){
  if(!m||m.type!=="MARKET_STATE"||!["LIVE","DELAYED"].includes(m.quality)||!m.data){
   list.innerHTML='<section class="market-view market-unavailable"><div><p class="eyebrow">MARKET</p><h2>Обзор рынка</h2><p>Подтверждённый MARKET_STATE недоступен. RADAR не подставляет ручные значения.</p></div><b>N/A</b></section>';if(empty)empty.hidden=true;return;
  }
- const d=m.data,c=d.crash||{},w=d.warning||{},gate=w.exit_gate||{},b=d.health?.breadth||{},ctx=d.context||{},dir=d.direction||{},hist=Array.isArray(d.history)?d.history.filter(x=>has(x.day)&&Number.isFinite(Number(x.score))):[];
+ const d=m.data,c=d.crash||{},w=d.warning||{},gate=w.exit_gate||{},b=d.health?.breadth||{},sig=d.indicators||{},dist=d.distribution||{},pos=d.positioning||{},ctx=d.context||{},dir=d.direction||{},hist=Array.isArray(d.history)?d.history.filter(x=>has(x.day)&&Number.isFinite(Number(x.score))):[];
  const periodHist=periodHistory(hist,selectedPeriod),source=esc(m.source?.owner||"—"), published=m.published_at?new Date(m.published_at).toLocaleString("ru-RU"):"—";
  const regime=has(c.state)?c.state:"N/A", regimeTone=regime==="NORMAL"?"good":regime==="CAUTION"||regime==="DEFENSIVE"?"warn":regime==="HIGH_RISK"||regime==="CRASH"?"bad":"na";
  const indicators=[
   ["Breadth",pct(b.pct_above_ma20),"выше MA20 · A/D "+(has(b.advance_decline_ratio)?num(b.advance_decline_ratio):"N/A"),has(b.coverage)?"good":"na"],
-  ["Volume / Distribution","N/A","не спроецировано источником","na"],
-  ["Volatility","N/A","не спроецировано источником","na"],
+  ["Market structure",sig.market_structure?.score==null?"N/A":num(sig.market_structure.score),sig.market_structure?.quality||"N/A",qTone(sig.market_structure?.quality)],
+  ["Volume / Distribution",dist.pct_distribution_5d==null?"N/A":pct(dist.pct_distribution_5d),"5D distribution · down/up volume "+(has(dist.mean_down_up_volume_ratio)?num(dist.mean_down_up_volume_ratio):"N/A"),has(dist.pct_distribution_5d)?"good":"na"],
+  ["Volatility / Liquidity",sig.volatility_liquidity?.score==null?"N/A":num(sig.volatility_liquidity.score),sig.volatility_liquidity?.quality||"N/A",qTone(sig.volatility_liquidity?.quality)],
+  ["Positioning",pos.quality||"N/A",pos.note||"не подтверждено источником",qTone(pos.quality)],
   ["Rates / OFZ",ctx.rate_ofz?.score==null?"N/A":num(ctx.rate_ofz.score),ctx.rate_ofz?.quality||"N/A",qTone(ctx.rate_ofz?.quality)],
   ["Oil / RUB",ctx.oil_rub?.score==null?"N/A":num(ctx.oil_rub.score),ctx.oil_rub?.quality||"N/A",qTone(ctx.oil_rub?.quality)],
   ["Macro / News","N/A","не входит в MARKET_STATE","na"],
