@@ -1,26 +1,71 @@
 (()=>{"use strict";
-const esc=v=>String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const val=(v,s='—')=>v===null||v===undefined||v===''?s:esc(v);
-const n=v=>Number.isFinite(Number(v))?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(Number(v)):'—';
-const quality=q=>`<span class="mv-quality ${q==='LIVE'?'live':''}">${val(q,'N/A')}</span>`;
+const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const has=v=>v!==null&&v!==undefined&&v!=="";
+const num=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("ru-RU",{maximumFractionDigits:2}).format(Number(v)):"—";
+const pct=v=>Number.isFinite(Number(v))?num(v)+"%":"N/A";
+const status=(label,tone="na")=>'<span class="mv-status '+tone+'">'+esc(label)+'</span>';
+const qTone=q=>q==="LIVE"?"good":q==="DELAYED"||q==="PARTIAL"?"warn":q==="ERROR"||q==="STALE"?"bad":"na";
+const fmtDay=d=>{const x=new Date(d+"T00:00:00");return Number.isNaN(x)?esc(d):x.toLocaleDateString("ru-RU",{day:"2-digit",month:"short"})};
+let selectedPeriod="3M";
+function periodHistory(hist,key){
+ if(key==="ALL")return hist;
+ const days={ "1M":31,"3M":92,"6M":184 }[key], last=new Date(hist.at(-1)?.day+"T00:00:00");
+ if(!days||Number.isNaN(last))return hist;
+ const cutoff=new Date(last);cutoff.setDate(cutoff.getDate()-days);return hist.filter(x=>new Date(x.day+"T00:00:00")>=cutoff);
+}
+function chart(hist){
+ if(!hist.length)return '<div class="mv-chart-wrap"><p class="mv-na">Нет подтверждённой истории.</p></div>';
+ const values=hist.map(x=>Number(x.score)).filter(Number.isFinite),min=0,max=100,w=640,h=220;
+ const points=hist.map((x,i)=>{const v=Number(x.score),px=hist.length===1?w/2:i*w/(hist.length-1),py=h-(Math.max(min,Math.min(max,v))/100*h);return px.toFixed(1)+","+py.toFixed(1)}).join(" ");
+ const last=hist.at(-1),lv=Number(last.score),lx=w,ly=h-(Math.max(min,Math.min(max,lv))/100*h);
+ return '<div class="mv-chart-wrap"><svg class="mv-chart" viewBox="0 0 '+w+" "+h+'" preserveAspectRatio="none" role="img" aria-label="История Crash Score"><polyline points="'+points+'"></polyline><circle cx="'+lx+'" cy="'+ly+'" r="5"></circle></svg></div><div class="mv-chart-axis"><span>'+fmtDay(hist[0].day)+"</span><span>"+fmtDay(last.day)+'</span></div><div class="mv-zones"><span><i></i>Normal / Caution</span><span><i class="warn"></i>High risk</span><span><i class="danger"></i>Crash</span></div>';
+}
+function episodes(hist){
+ const flagged=hist.filter(x=>["HIGH_RISK","CRASH"].includes(x.state)); if(!flagged.length)return '<p class="mv-na">В доступной source history нет отмеченных high-risk / crash периодов.</p>';
+ const groups=[];for(const x of flagged){const prev=groups.at(-1),gap=prev?(new Date(x.day)-new Date(prev.end))/86400000:Infinity;if(prev&&gap<=5){prev.end=x.day;prev.peak=Math.max(prev.peak,Number(x.score)||0);if(x.state==="CRASH")prev.crash=true}else groups.push({start:x.day,end:x.day,peak:Number(x.score)||0,crash:x.state==="CRASH"})}
+ return '<div class="mv-timeline">'+groups.slice(-4).map(x=>'<div class="mv-episode '+(x.crash?"crash":"")+'"><i></i><span>'+fmtDay(x.start)+(x.end!==x.start?" — "+fmtDay(x.end):"")+'</span><strong>'+esc(x.crash?"CRASH":"HIGH RISK")+'</strong><small>Peak Crash Score '+num(x.peak)+'</small></div>').join("")+'</div>';
+}
+function insight(fact,hypothesis,discipline){return '<div class="mv-insights"><div><b>Факт</b><p>'+fact+'</p></div><div><b>Гипотеза</b><p>'+hypothesis+'</p></div><div><b>Режим наблюдения</b><p>'+discipline+'</p></div></div>'}
 function renderMarket(){
- const list=document.getElementById('today-list'),empty=document.getElementById('empty-state'); if(!list)return;
+ const list=document.getElementById("today-list"),empty=document.getElementById("empty-state");if(!list)return;
  const m=window.RADAR_MARKET;
- list.classList.remove('has-portfolio');
- if(!m||m.type!=='MARKET_STATE'||!['LIVE','DELAYED'].includes(m.quality)||!m.data){
-   list.innerHTML='<section class="market-view market-unavailable"><div><p class="eyebrow">MARKET</p><h2>Контекст рынка</h2><p>Подтверждённый MARKET_STATE пока недоступен. RADAR не подставляет ручные значения.</p></div><b>N/A</b></section>'; if(empty)empty.hidden=true; return;
+ if(!m||m.type!=="MARKET_STATE"||!["LIVE","DELAYED"].includes(m.quality)||!m.data){
+  list.innerHTML='<section class="market-view market-unavailable"><div><p class="eyebrow">MARKET</p><h2>Обзор рынка</h2><p>Подтверждённый MARKET_STATE недоступен. RADAR не подставляет ручные значения.</p></div><b>N/A</b></section>';if(empty)empty.hidden=true;return;
  }
- const d=m.data,c=d.crash||{},w=d.warning||{},g=w.exit_gate||{},b=d.health?.breadth||null,dir=d.direction||{},ctx=d.context||{},hist=Array.isArray(d.history)?d.history:[];
- const breadth=b?`<dl><div><dt>Выше MA20</dt><dd>${n(b.above_ma20_pct)}%</dd></div><div><dt>Выше MA50</dt><dd>${n(b.above_ma50_pct)}%</dd></div><div><dt>A/D</dt><dd>${n(b.advance_decline_ratio)}</dd></div><div><dt>Дивергенция</dt><dd>${val(b.divergence,'N/A')}</dd></div></dl>`:'<p class="mv-na">N/A · источник не подтвердил Breadth</p>';
- const contextCard=(title,x)=>`<div><span>${title}</span><strong>${x&&x.quality&&x.quality!=='N/A'&&x.score!=null?n(x.score):'N/A'}</strong><small>${val(x?.quality,'N/A')}</small></div>`;
- const bars=hist.slice(-12).map(x=>`<i title="${esc(x.day)} · ${n(x.score)}" style="height:${Math.max(4,Math.min(100,Number(x.score)||0))}%"></i>`).join('');
- list.innerHTML=`<section class="market-view"><header class="mv-head"><div><p class="eyebrow">MARKET / RUSSIA</p><h2>Контекст рынка</h2><p>Состояние риска из moex-crash-radar · без пересчёта аналитики в RADAR</p></div><div>${quality(m.quality)}<time>${m.published_at?new Date(m.published_at).toLocaleString('ru-RU'):'—'}</time></div></header>
- <div class="mv-grid mv-state"><article><span>IMOEX</span><strong>${n(d.imoex)}</strong><small>${val(m.source?.secid,'IMOEX')}</small></article><article><span>Crash Score</span><strong>${n(c.score)}</strong><small>0–100</small></article><article><span>Crash State</span><strong>${val(c.state)}</strong><small>${quality(m.quality)}</small></article><article><span>EXIT Stage</span><strong>${val(g.stage)}</strong><small>${g.cash_confirmed===true?'CASH CONFIRMED':'Source defensive state'}</small></article></div>
- <div class="mv-grid mv-body"><article class="mv-panel"><h3>Warning</h3><dl><div><dt>Confirmations</dt><dd>${val(c.critical_confirmations)}</dd></div><div><dt>Crash Momentum</dt><dd>${w.crash_momentum==null?'N/A':n(w.crash_momentum)}</dd></div><div><dt>Cash confirmed</dt><dd>${g.cash_confirmed===true?'YES':'NO'}</dd></div></dl></article><article class="mv-panel"><h3>Health / Breadth</h3>${breadth}</article><article class="mv-panel"><h3>Direction</h3><div class="mv-direction"><strong>${val(dir.value,'N/A')}</strong><small>${val(dir.quality,'N/A')} · только подтверждённый source output</small></div></article><article class="mv-panel"><h3>Context</h3><div class="mv-context">${contextCard('Rate / OFZ',ctx.rate_ofz)}${contextCard('Oil / RUB',ctx.oil_rub)}</div></article></div>
- <article class="mv-panel mv-history"><header><h3>Crash Score history</h3><span>${hist.length} snapshots</span></header><div class="mv-bars">${bars||'<span>N/A</span>'}</div></article>
- <footer class="mv-foot"><span>Source: ${val(m.source?.owner)} · ${val(m.source?.ref)}</span><span>Provider: ${val(m.source?.provider)}</span><span>Updated: ${val(m.published_at)}</span><span>Quality: ${val(m.quality)}</span></footer></section>`;
+ const d=m.data,c=d.crash||{},w=d.warning||{},gate=w.exit_gate||{},b=d.health?.breadth||{},ctx=d.context||{},dir=d.direction||{},hist=Array.isArray(d.history)?d.history.filter(x=>has(x.day)&&Number.isFinite(Number(x.score))):[];
+ const periodHist=periodHistory(hist,selectedPeriod),source=esc(m.source?.owner||"—"), published=m.published_at?new Date(m.published_at).toLocaleString("ru-RU"):"—";
+ const regime=has(c.state)?c.state:"N/A", regimeTone=regime==="NORMAL"?"good":regime==="CAUTION"||regime==="DEFENSIVE"?"warn":regime==="HIGH_RISK"||regime==="CRASH"?"bad":"na";
+ const indicators=[
+  ["Breadth",pct(b.pct_above_ma20),"выше MA20 · A/D "+(has(b.advance_decline_ratio)?num(b.advance_decline_ratio):"N/A"),has(b.coverage)?"good":"na"],
+  ["Volume / Distribution","N/A","не спроецировано источником","na"],
+  ["Volatility","N/A","не спроецировано источником","na"],
+  ["Rates / OFZ",ctx.rate_ofz?.score==null?"N/A":num(ctx.rate_ofz.score),ctx.rate_ofz?.quality||"N/A",qTone(ctx.rate_ofz?.quality)],
+  ["Oil / RUB",ctx.oil_rub?.score==null?"N/A":num(ctx.oil_rub.score),ctx.oil_rub?.quality||"N/A",qTone(ctx.oil_rub?.quality)],
+  ["Macro / News","N/A","не входит в MARKET_STATE","na"],
+  ["Momentum",w.crash_momentum==null?"N/A":num(w.crash_momentum),"Crash Momentum · source","warn"]
+ ];
+ const controls=["1M","3M","6M","1Y","ALL"].map(x=>'<button data-period="'+x+'" '+(x==="1Y"?"disabled":"")+' class="'+(x===selectedPeriod?"is-active":"")+'">'+x+'</button>').join("");
+ const validation='<dl class="mv-validation"><div><dt>Историческая валидация</dt><dd>N/A</dd></div><div><dt>False-event rate</dt><dd>N/A</dd></div><div><dt>Средняя длительность</dt><dd>N/A</dd></div><div><dt>Source snapshots</dt><dd>'+num(hist.length)+'</dd></div></dl><p class="mv-validation-note">Источник не передал калиброванные validation-метрики. Число snapshots — факт покрытия, не доказательство точности.</p>';
+ const breadthText=has(b.coverage)?("Breadth: "+pct(b.pct_above_ma20)+" above MA20, "+pct(b.pct_new_20d_lows)+" new 20D lows; coverage "+pct(Number(b.coverage)*100)+"."):"Breadth не подтверждён источником.";
+ const fact="Crash State: "+esc(regime)+", Crash Score "+num(c.score)+" / 100, critical confirmations "+(has(c.critical_confirmations)?num(c.critical_confirmations):"N/A")+". "+breadthText;
+ const hypo="Ослабление breadth и отрицательная 5D-динамика могут требовать дальнейшего подтверждения; это не прогноз и не решение.";
+ const discipline="Проверять свежесть и качество источника; не превращать "+esc(gate.stage||"N/A")+" в торговую команду. Направление RADAR: N/A.";
+ list.innerHTML='<section class="market-view"><header class="mv-head"><div><p class="eyebrow">MARKET / RUSSIA</p><h2>Обзор рынка</h2><p>Слой состояния рынка. FACT, ANALYSIS и DECISION не смешиваются.</p></div><div class="mv-source">'+status(m.quality,qTone(m.quality))+'<small>Source: '+source+'</small><time>'+published+'</time></div></header>'
+ +'<section class="mv-grid mv-state mv-kpis"><article><span>Market regime</span><strong>'+esc(regime)+'</strong><em>Source Crash State</em>'+status(m.quality,regimeTone)+'</article>'
+ +'<article><span>Market risk</span><strong>'+num(c.score)+' <small>/ 100</small></strong><em>Crash Score · source output</em>'+status("не probability", "na")+'</article>'
+ +'<article><span>Main market signal</span><strong>'+esc(dir.value||"N/A")+'</strong><em>Direction не подтверждён источником</em>'+status(dir.quality||"N/A","na")+'</article>'
+ +'<article><span>IMOEX</span><strong>'+num(d.imoex)+'</strong><em>Изменение / ряд: N/A в контракте</em>'+status(m.source?.secid||"IMOEX","good")+'</article></section>'
+ +'<section class="mv-strip">'+indicators.map(x=>'<article class="mv-indicator"><span>'+x[0]+'</span><strong>'+x[1]+'</strong><small>'+esc(x[2])+'</small>'+status(x[3]==="good"?"available":x[2],x[3])+'</article>').join("")+'</section>'
+ +'<section class="mv-analytics"><article class="mv-panel mv-chart-panel"><header><div><h3>Crash Score — динамика source history</h3><span>Текущая точка: '+num(c.score)+'</span></div><div class="mv-chart-controls">'+controls+'</div></header>'+chart(periodHist)+'</article>'
+ +'<article class="mv-panel mv-validation-panel"><header><h3>Validation / historical context</h3><span>fail-closed</span></header>'+validation+'</article>'
+ +'<article class="mv-panel mv-insight-panel"><header><h3>Выводы</h3><span>без RADAR action</span></header>'+insight(fact,hypo,discipline)+'</article></section>'
+ +'<article class="mv-panel mv-history"><header><div><h3>Исторические source-эпизоды</h3><span>маркировка из доступной history, не validation</span></div><span>'+num(hist.length)+' snapshots</span></header>'+episodes(hist)+'</article>'
+ +'<footer class="mv-foot"><span>Source: '+source+' · '+esc(m.source?.ref||"—")+'</span><span>Provider: '+esc(m.source?.provider||"—")+'</span><span>Updated: '+published+'</span><span>Quality: '+esc(m.quality)+'</span></footer></section>';
+ list.querySelectorAll("[data-period]").forEach(btn=>btn.addEventListener("click",()=>{selectedPeriod=btn.dataset.period;renderMarket()}));
  if(empty)empty.hidden=true;
 }
-function bind(){document.querySelectorAll('.view-tab[data-view="MARKET"]').forEach(b=>b.addEventListener('click',()=>setTimeout(renderMarket,0)));}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+function bind(){
+ document.querySelectorAll(".view-tab").forEach(b=>b.addEventListener("click",()=>{const active=b.dataset.view==="MARKET";document.body.classList.toggle("market-mode",active);if(active)setTimeout(renderMarket,0)}));
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();
 })();
