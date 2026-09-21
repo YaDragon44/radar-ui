@@ -1,6 +1,6 @@
 window.RADAR_MARKET = {
   "type": "MARKET_STATE",
-  "published_at": "2026-09-19T00:00:00+03:00",
+  "published_at": "2026-09-21T00:00:00+03:00",
   "quality": "LIVE",
   "source": {
     "owner": "YaDragon44/moex-crash-radar",
@@ -9,19 +9,19 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2262.13,
+    "imoex": 2265.65,
     "crash": {
-      "score": 34.22,
+      "score": 27.76,
       "state": "CAUTION",
       "available_weight": 0.72,
-      "critical_confirmations": 1,
+      "critical_confirmations": 0,
       "raw_cash_signal": false
     },
     "warning": {
       "exit_gate": {
         "stage": "CASH_CONFIRMED",
         "cash_confirmed": true,
-        "latest_5d_return_pct": -4.19,
+        "latest_5d_return_pct": -4.04,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -34,19 +34,19 @@ window.RADAR_MARKET = {
         },
         "last_event_day": "2026-08-17"
       },
-      "crash_momentum": 30.08
+      "crash_momentum": 23.62
     },
     "health": {
       "breadth": {
         "universe_size": 24,
         "usable_size": 24,
         "coverage": 1.0,
-        "pct_above_ma20": 37.5,
+        "pct_above_ma20": 33.33,
         "pct_above_ma50": 33.33,
-        "pct_new_20d_lows": 0.0,
+        "pct_new_20d_lows": 8.33,
         "pct_new_20d_highs": 0.0,
-        "advance_decline_ratio": 0.278,
-        "breadth_return_5d": -3.99,
+        "advance_decline_ratio": 1.0,
+        "breadth_return_5d": -0.91,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -57,14 +57,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 51.01,
+        "score": 50.72,
         "quality": "LIVE",
         "key_rate": 14.0,
-        "key_rate_day": "2026-09-18",
-        "median_long_ofz_yield": 16.19,
+        "key_rate_day": "2026-09-21",
+        "median_long_ofz_yield": 16.18,
         "ofz_count": 30,
-        "rgbi_return_5d": -0.26,
-        "rgbi_return_20d": -0.54,
+        "rgbi_return_5d": 0.3,
+        "rgbi_return_20d": -0.64,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -79,8 +79,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": 0.54,
-        "cnyrub_return_20d": 1.99,
+        "cnyrub_return_5d": 0.1,
+        "cnyrub_return_20d": 0.7,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -687,8 +687,8 @@ window.RADAR_MARKET = {
         "state": "NORMAL"
       },
       {
-        "day": "2026-09-19",
-        "score": 34.22,
+        "day": "2026-09-21",
+        "score": 27.76,
         "state": "CAUTION"
       }
     ]
