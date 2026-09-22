@@ -1,4 +1,18 @@
-window.RADAR_TODAY = [];
+window.RADAR_TODAY = [
+  {
+    "context": "MARKET",
+    "asset_id": null,
+    "classification": "NONE",
+    "status": "NORMAL",
+    "action": "NORMAL",
+    "priority": "LOW",
+    "why": "Рынок в нормальном режиме по подтверждённому Domain result.",
+    "quality": "LIVE",
+    "risk": "NORMAL",
+    "published_at": "2026-09-22T00:00:00+03:00",
+    "source_ref": "artifacts/market_snapshot.json"
+  }
+];
 window.RADAR_PORTFOLIO = [
   {
     "portfolio_id": "zhugan.public_portfolio",
