@@ -36,15 +36,17 @@ function renderMarket(){
  const periodHist=periodHistory(hist,selectedPeriod),source=esc(m.source?.owner||"—"), published=m.published_at?new Date(m.published_at).toLocaleString("ru-RU"):"—";
  const regime=has(c.state)?c.state:"N/A", regimeTone=regime==="NORMAL"?"good":regime==="CAUTION"||regime==="DEFENSIVE"?"warn":regime==="HIGH_RISK"||regime==="CRASH"?"bad":"na";
  const indicators=[
-  ["Breadth",pct(b.pct_above_ma20),"выше MA20 · A/D "+(has(b.advance_decline_ratio)?num(b.advance_decline_ratio):"N/A"),has(b.coverage)?"good":"na"],
+  ["Breadth",pct(b.pct_above_ma20),"MA20 · MA50 "+pct(b.pct_above_ma50)+" · new 20D lows/highs "+pct(b.pct_new_20d_lows)+" / "+pct(b.pct_new_20d_highs)+" · A/D "+(has(b.advance_decline_ratio)?num(b.advance_decline_ratio):"N/A")+" · 5D "+pct(b.breadth_return_5d)+" · coverage "+(has(b.coverage)?pct(Number(b.coverage)*100):"N/A"),has(b.coverage)?"good":"na"],
   ["Market structure",sig.market_structure?.score==null?"N/A":num(sig.market_structure.score),sig.market_structure?.quality||"N/A",qTone(sig.market_structure?.quality)],
+  ["Levels / Momentum",sig.levels_momentum?.score==null?"N/A":num(sig.levels_momentum.score),sig.levels_momentum?.quality||"N/A",qTone(sig.levels_momentum?.quality)],
   ["Volume / Distribution",dist.pct_distribution_5d==null?"N/A":pct(dist.pct_distribution_5d),"5D distribution · down/up volume "+(has(dist.mean_down_up_volume_ratio)?num(dist.mean_down_up_volume_ratio):"N/A"),has(dist.pct_distribution_5d)?"good":"na"],
   ["Volatility / Liquidity",sig.volatility_liquidity?.score==null?"N/A":num(sig.volatility_liquidity.score),sig.volatility_liquidity?.quality||"N/A",qTone(sig.volatility_liquidity?.quality)],
-  ["Positioning",pos.quality||"N/A",pos.note||"не подтверждено источником",qTone(pos.quality)],
-  ["Rates / OFZ",ctx.rate_ofz?.score==null?"N/A":num(ctx.rate_ofz.score),ctx.rate_ofz?.quality||"N/A",qTone(ctx.rate_ofz?.quality)],
-  ["Oil / RUB",ctx.oil_rub?.score==null?"N/A":num(ctx.oil_rub.score),ctx.oil_rub?.quality||"N/A",qTone(ctx.oil_rub?.quality)],
+  ["Positioning",pos.quality||"N/A",(pos.source?pos.source+" · ":"")+(pos.note||"не подтверждено источником"),qTone(pos.quality)],
+  ["Rates / OFZ",ctx.rate_ofz?.score==null?"N/A":num(ctx.rate_ofz.score),(ctx.rate_ofz?.quality||"N/A")+" · key "+(has(ctx.rate_ofz?.key_rate)?pct(ctx.rate_ofz.key_rate):"N/A")+" · long OFZ "+(has(ctx.rate_ofz?.median_long_ofz_yield)?pct(ctx.rate_ofz.median_long_ofz_yield):"N/A")+" · RGBI 5D/20D "+pct(ctx.rate_ofz?.rgbi_return_5d)+" / "+pct(ctx.rate_ofz?.rgbi_return_20d),qTone(ctx.rate_ofz?.quality)],
+  ["Oil / RUB",ctx.oil_rub?.score==null?"N/A":num(ctx.oil_rub.score),(ctx.oil_rub?.quality||"N/A")+" · CNYRUB 5D/20D "+pct(ctx.oil_rub?.cnyrub_return_5d)+" / "+pct(ctx.oil_rub?.cnyrub_return_20d)+" · coverage "+(has(ctx.oil_rub?.component_coverage)?pct(Number(ctx.oil_rub.component_coverage)*100):"N/A")+" · "+(ctx.oil_rub?.note||"не подтверждено источником"),qTone(ctx.oil_rub?.quality)],
   ["Macro / News","N/A","не входит в MARKET_STATE","na"],
-  ["Momentum",w.crash_momentum==null?"N/A":num(w.crash_momentum),"Crash Momentum · source","warn"]
+  ["Momentum",w.crash_momentum==null?"N/A":num(w.crash_momentum),"Crash Momentum · source","warn"],
+  ["Exit Gate",gate.stage||"N/A","cash confirmed "+(has(gate.cash_confirmed)?String(gate.cash_confirmed):"N/A")+" · latest 5D "+pct(gate.latest_5d_return_pct)+" · last event "+(gate.last_event_day||"N/A"),has(gate.stage)?"warn":"na"]
  ];
  const controls=["1M","3M","6M","1Y","ALL"].map(x=>'<button data-period="'+x+'" '+(x==="1Y"?"disabled":"")+' class="'+(x===selectedPeriod?"is-active":"")+'">'+x+'</button>').join("");
  const validation='<dl class="mv-validation"><div><dt>Историческая валидация</dt><dd>N/A</dd></div><div><dt>False-event rate</dt><dd>N/A</dd></div><div><dt>Средняя длительность</dt><dd>N/A</dd></div><div><dt>Source snapshots</dt><dd>'+num(hist.length)+'</dd></div></dl><p class="mv-validation-note">Источник не передал калиброванные validation-метрики. Число snapshots — факт покрытия, не доказательство точности.</p>';
@@ -55,7 +57,7 @@ function renderMarket(){
  list.innerHTML='<section class="market-view"><header class="mv-head"><div><p class="eyebrow">MARKET / RUSSIA</p><h2>Обзор рынка</h2><p>Слой состояния рынка. FACT, ANALYSIS и DECISION не смешиваются.</p></div><div class="mv-source">'+status(m.quality,qTone(m.quality))+'<small>Source: '+source+'</small><time>'+published+'</time></div></header>'
  +'<section class="mv-grid mv-state mv-kpis"><article><span>Market regime</span><strong>'+esc(regime)+'</strong><em>Source Crash State</em>'+status(m.quality,regimeTone)+'</article>'
  +'<article><span>Market risk</span><strong>'+num(c.score)+' <small>/ 100</small></strong><em>Crash Score · source output</em>'+status("не probability", "na")+'</article>'
- +'<article><span>Main market signal</span><strong>'+esc(dir.value||"N/A")+'</strong><em>Direction не подтверждён источником</em>'+status(dir.quality||"N/A","na")+'</article>'
+ +'<article><span>Main market signal</span><strong>'+esc(dir.value||"N/A")+'</strong><em>'+(dir.value?"Direction · source":"Direction не подтверждён источником")+'</em>'+status(dir.quality||"N/A",qTone(dir.quality))+'</article>'
  +'<article><span>IMOEX</span><strong>'+num(d.imoex)+'</strong><em>Изменение / ряд: N/A в контракте</em>'+status(m.source?.secid||"IMOEX","good")+'</article></section>'
  +'<section class="mv-strip">'+indicators.map(x=>'<article class="mv-indicator"><span>'+x[0]+'</span><strong>'+x[1]+'</strong><small>'+esc(x[2])+'</small>'+status(x[3]==="good"?"available":x[2],x[3])+'</article>').join("")+'</section>'
  +'<section class="mv-analytics"><article class="mv-panel mv-chart-panel"><header><div><h3>Crash Score — динамика source history</h3><span>Текущая точка: '+num(c.score)+'</span></div><div class="mv-chart-controls">'+controls+'</div></header>'+chart(periodHist)+'</article>'
