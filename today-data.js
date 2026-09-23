@@ -9,7 +9,7 @@ window.RADAR_TODAY = [
     "why": "Рынок в нормальном режиме по подтверждённому Domain result.",
     "quality": "LIVE",
     "risk": "NORMAL",
-    "published_at": "2026-09-22T00:00:00+03:00",
+    "published_at": "2026-09-23T00:00:00+03:00",
     "source_ref": "artifacts/market_snapshot.json"
   }
 ];
