@@ -27,16 +27,16 @@ window.RADAR_PORTFOLIO = [
     "why": "Подтверждённый PORTFOLIO_STATE получен, но правило инвестиционного действия не авторизовано.",
     "quality": "LIVE",
     "risk": "NO_PORTFOLIO_RULE",
-    "published_at": "2026-09-15T13:53:01+00:00",
-    "source_ref": "https://t.me/clubwinwin/9180",
+    "published_at": "2026-09-22T07:26:00+00:00",
+    "source_ref": "https://t.me/clubwinwin/9199",
     "title": "Публичный портфель Жугана",
     "portfolio": {
-      "value_rub": 114005,
-      "cash_rub": 1564,
+      "value_rub": 111149,
+      "cash_rub": 1206,
       "contributed_rub": 141000,
       "dividends_rub": 7979,
-      "drawdown_rub": 27285,
-      "week": 141,
+      "drawdown_rub": 31129,
+      "week": 142,
       "positions": [
         {
           "name": "Артген",
@@ -130,9 +130,9 @@ window.RADAR_PORTFOLIO = [
           "name": "ЦИАН",
           "ticker": "CNRU",
           "boardid": "TQBR",
-          "quantity": 9,
+          "quantity": 10,
           "unit": "shares",
-          "quantity_label": "9"
+          "quantity_label": "10"
         },
         {
           "name": "Фонд Тинькофф Индекс Мосбиржи",
@@ -143,8 +143,8 @@ window.RADAR_PORTFOLIO = [
           "quantity_label": "44 лота"
         }
       ],
-      "last_operation": null,
-      "source_target": null,
+      "last_operation": "ЦИАН +1 × 645,2 ₽",
+      "source_target": "Цель источника: 900 ₽",
       "source_targets": {
         "NVTK": {
           "target_price_rub": 1400,
@@ -163,9 +163,10 @@ window.RADAR_PORTFOLIO = [
           "status": "CONFIRMED"
         },
         "CNRU": {
-          "target_price_rub": 1000,
+          "target_price_rub": 900,
           "semantic_class": "SOURCE_TARGET",
-          "status": "CONFIRMED"
+          "status": "CONFIRMED",
+          "note": "Последняя подтверждённая цель из #9199; заменяет более раннюю цель 1000 ₽"
         },
         "NMTP": {
           "target_price_rub": 11,
