@@ -18,6 +18,18 @@ window.RADAR_IDEAS = [
       ref: "https://www.tbank.ru/invest/stocks/TATN/ideas/"
     },
     action: null,
-    radar_decision: "N/A"
+    radar_decision: "N/A",
+    fundamentals: {
+      semantic_class: "FACT",
+      quality: "PARTIAL",
+      period: "2025",
+      revenue_mrub: 1818134,
+      revenue_prev_mrub: 2030371,
+      profit_attributable_mrub: 158623,
+      profit_attributable_prev_mrub: 306140,
+      eps_rub: 70.48,
+      eps_prev_rub: 136.03,
+      source_ref: "https://financialfilings.com/filings/tatneft-3/annual-report-esef/2026/33058156/"
+    }
   }
 ];
