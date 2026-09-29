@@ -57,3 +57,12 @@
 .owner-structure-body .owner-stock-list{grid-template-columns:repeat(3,minmax(72px,1fr));column-gap:12px;max-height:none}
 @media(max-width:1500px){.owner-structure-body .owner-stock-list{grid-template-columns:repeat(2,minmax(80px,1fr))}}
 @media(max-width:900px){.owner-structure-body .owner-stock-list{grid-template-columns:1fr}}
+
+.owner-structure-grid{grid-template-columns:minmax(560px,1.45fr) minmax(360px,1fr) minmax(360px,1fr) minmax(255px,.68fr)}
+.owner-stock-panel .owner-structure-body{grid-template-columns:160px minmax(0,1fr)}
+.owner-stock-panel .owner-stock-list{grid-template-columns:repeat(3,minmax(92px,1fr));overflow:visible;max-height:none;column-gap:14px}
+.owner-stock-panel .owner-stock-list div{min-width:0}.owner-stock-panel .owner-stock-list b{overflow:hidden;text-overflow:ellipsis}
+.owner-metrics-panel{min-width:0}
+@media(max-width:1700px){.owner-structure-grid{grid-template-columns:minmax(500px,1.35fr) minmax(330px,1fr) minmax(330px,1fr) minmax(235px,.65fr)}}
+@media(max-width:1400px){.owner-structure-grid{grid-template-columns:1fr 1fr}.owner-stock-panel{grid-column:1/-1}.owner-stock-panel .owner-stock-list{grid-template-columns:repeat(3,minmax(100px,1fr))}}
+@media(max-width:900px){.owner-structure-grid{grid-template-columns:1fr}.owner-stock-panel .owner-stock-list{grid-template-columns:1fr}}
