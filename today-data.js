@@ -33,7 +33,7 @@ window.RADAR_PORTFOLIO = [
     "portfolio": {
       "value_rub": 3396973,
       "cost_basis_rub": 3575005.99,
-      "composition_as_of": "2026-08-17",
+      "composition_as_of": "2026-09-29",
       "valuation_as_of": "2026-09-23",
       "asset_mix_pct": {
         "Акции": 65,
@@ -408,12 +408,12 @@ window.RADAR_PORTFOLIO = [
           "name": "ОФЗ 26235",
           "ticker": "SU26235RMFS0",
           "boardid": null,
-          "quantity": 250,
+          "quantity": 50,
           "unit": "units",
-          "quantity_label": "250",
+          "quantity_label": "50",
           "asset_class": "Облигации",
-          "avg_price_rub": 723.49392,
-          "cost_basis_rub": 180873.48
+          "avg_price_rub": 713.41,
+          "cost_basis_rub": 35670.5
         },
         {
           "name": "ОФЗ 26238",
@@ -423,19 +423,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "251",
           "asset_class": "Облигации",
-          "avg_price_rub": 611.563028,
-          "cost_basis_rub": 153502.32
-        },
-        {
-          "name": "ОФЗ 26246",
-          "ticker": "SU26246RMFS7",
-          "boardid": null,
-          "quantity": 1,
-          "unit": "units",
-          "quantity_label": "1",
-          "asset_class": "Облигации",
-          "avg_price_rub": 901.32,
-          "cost_basis_rub": 901.32
+          "avg_price_rub": 510.31,
+          "cost_basis_rub": 128087.81
         },
         {
           "name": "ОФЗ 26248",
@@ -445,30 +434,19 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "200",
           "asset_class": "Облигации",
-          "avg_price_rub": 911.327,
-          "cost_basis_rub": 182265.4
+          "avg_price_rub": 792.79,
+          "cost_basis_rub": 158558
         },
         {
-          "name": "ОФЗ 26254",
-          "ticker": "SU26254RMFS1",
+          "name": "ОФЗ 26253",
+          "ticker": "SU26253RMFS3",
           "boardid": null,
-          "quantity": 20,
+          "quantity": 213,
           "unit": "units",
-          "quantity_label": "20",
+          "quantity_label": "213",
           "asset_class": "Облигации",
-          "avg_price_rub": 984.2715,
-          "cost_basis_rub": 19685.43
-        },
-        {
-          "name": "ОФЗ 29010",
-          "ticker": "SU29010RMFS4",
-          "boardid": null,
-          "quantity": 9,
-          "unit": "units",
-          "quantity_label": "9",
-          "asset_class": "Облигации",
-          "avg_price_rub": 1053.004444,
-          "cost_basis_rub": 9477.04
+          "avg_price_rub": 841.5,
+          "cost_basis_rub": 179239.5
         },
         {
           "name": "ВИМ – Ликвидность",
