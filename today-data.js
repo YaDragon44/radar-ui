@@ -9,7 +9,7 @@ window.RADAR_TODAY = [
     "why": "Рынок в нормальном режиме по подтверждённому Domain result.",
     "quality": "LIVE",
     "risk": "NORMAL",
-    "published_at": "2026-09-23T00:00:00+03:00",
+    "published_at": "2026-09-29T16:11:00+03:00",
     "source_ref": "artifacts/market_snapshot.json"
   }
 ];
@@ -24,17 +24,17 @@ window.RADAR_PORTFOLIO = [
     "status": "PARTIAL_CURRENT",
     "action": "INFORMATION",
     "priority": "NONE",
-    "why": "Состав и количества подтверждены реестром операций по 17.08.2026; более свежий полный брокерский снимок состава не найден. Общая рыночная оценка подтверждена отдельно на 23.09.2026.",
+    "why": "Портфель частично актуализирован по брокерским скриншотам 29.09.2026: обновлены подтверждённые количества и себестоимость видимых позиций; невидимые на скриншотах позиции сохранены без предположений. Общая рыночная оценка snapshot: 3 345 551,01 ₽.",
     "quality": "PARTIAL",
     "risk": "MIXED_FRESHNESS",
     "published_at": "2026-09-23T00:00:00+03:00",
     "source_ref": null,
     "title": "Мой портфель РФ",
     "portfolio": {
-      "value_rub": 3396973,
-      "cost_basis_rub": 3575005.99,
+      "value_rub": 3345551.01,
+      "cost_basis_rub": 3722636.94,
       "composition_as_of": "2026-09-29",
-      "valuation_as_of": "2026-09-23",
+      "valuation_as_of": "2026-09-29",
       "asset_mix_pct": {
         "Акции": 65,
         "Облигации": 34.7,
@@ -67,12 +67,12 @@ window.RADAR_PORTFOLIO = [
           "name": "Циан",
           "ticker": "CNRU",
           "boardid": "TQBR",
-          "quantity": 5,
+          "quantity": 12,
           "unit": "shares",
-          "quantity_label": "5",
+          "quantity_label": "12",
           "asset_class": "Акции",
-          "avg_price_rub": 502.04,
-          "cost_basis_rub": 2510.2
+          "avg_price_rub": 589.316667,
+          "cost_basis_rub": 7071.80
         },
         {
           "name": "Группа Аренадата",
@@ -82,19 +82,19 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "608",
           "asset_class": "Акции",
-          "avg_price_rub": 92.346431,
-          "cost_basis_rub": 56146.63
+          "avg_price_rub": 92.309507,
+          "cost_basis_rub": 56124.18
         },
         {
           "name": "ДОМ.РФ",
           "ticker": "DOMRF",
           "boardid": "TQBR",
-          "quantity": 5,
+          "quantity": 10,
           "unit": "shares",
-          "quantity_label": "5",
+          "quantity_label": "10",
           "asset_class": "Акции",
-          "avg_price_rub": 2090.574,
-          "cost_basis_rub": 10452.87
+          "avg_price_rub": 2103.030000,
+          "cost_basis_rub": 21030.30
         },
         {
           "name": "Норильский никель",
@@ -104,8 +104,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "1000",
           "asset_class": "Акции",
-          "avg_price_rub": 125.445009,
-          "cost_basis_rub": 125445.01
+          "avg_price_rub": 125.211600,
+          "cost_basis_rub": 125211.60
         },
         {
           "name": "РусГидро",
@@ -126,8 +126,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "32",
           "asset_class": "Акции",
-          "avg_price_rub": 5017.912813,
-          "cost_basis_rub": 160573.21
+          "avg_price_rub": 5015.906250,
+          "cost_basis_rub": 160509.00
         },
         {
           "name": "МТС",
@@ -137,8 +137,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "1000",
           "asset_class": "Акции",
-          "avg_price_rub": 218.13388,
-          "cost_basis_rub": 218133.88
+          "avg_price_rub": 217.750000,
+          "cost_basis_rub": 217750.00
         },
         {
           "name": "НЛМК",
@@ -148,8 +148,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "1010",
           "asset_class": "Акции",
-          "avg_price_rub": 80.151188,
-          "cost_basis_rub": 80952.7
+          "avg_price_rub": 80.119139,
+          "cost_basis_rub": 80920.33
         },
         {
           "name": "НОВАТЭК",
@@ -159,8 +159,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "100",
           "asset_class": "Акции",
-          "avg_price_rub": 1074.473233,
-          "cost_basis_rub": 107447.32
+          "avg_price_rub": 1051.491000,
+          "cost_basis_rub": 105149.10
         },
         {
           "name": "Озон Фармацевтика",
@@ -170,19 +170,19 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "4340",
           "asset_class": "Акции",
-          "avg_price_rub": 51.138274,
-          "cost_basis_rub": 221940.11
+          "avg_price_rub": 51.113065,
+          "cost_basis_rub": 221830.70
         },
         {
           "name": "Полюс",
           "ticker": "PLZL",
           "boardid": "TQBR",
-          "quantity": 2,
+          "quantity": 10,
           "unit": "shares",
-          "quantity_label": "2",
+          "quantity_label": "10",
           "asset_class": "Акции",
-          "avg_price_rub": 1277.176667,
-          "cost_basis_rub": 2554.35
+          "avg_price_rub": 1094.640000,
+          "cost_basis_rub": 10946.40
         },
         {
           "name": "Промомед",
@@ -192,8 +192,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "100",
           "asset_class": "Акции",
-          "avg_price_rub": 400.5751,
-          "cost_basis_rub": 40057.51
+          "avg_price_rub": 400.415000,
+          "cost_basis_rub": 40041.50
         },
         {
           "name": "Сбер Банк - привилегированные акции",
@@ -203,41 +203,41 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "2000",
           "asset_class": "Акции",
-          "avg_price_rub": 291.88695,
-          "cost_basis_rub": 583773.9
+          "avg_price_rub": 291.122570,
+          "cost_basis_rub": 582245.14
         },
         {
           "name": "Т-Технологии",
           "ticker": "T",
           "boardid": "TQBR",
-          "quantity": 267,
+          "quantity": 807,
           "unit": "shares",
-          "quantity_label": "267",
+          "quantity_label": "807",
           "asset_class": "Акции",
-          "avg_price_rub": 940.775993,
-          "cost_basis_rub": 251187.19
+          "avg_price_rub": 311.133284,
+          "cost_basis_rub": 251084.56
         },
         {
           "name": "ВК",
           "ticker": "VKCO",
           "boardid": "TQBR",
-          "quantity": 423,
+          "quantity": 898,
           "unit": "shares",
-          "quantity_label": "423",
+          "quantity_label": "898",
           "asset_class": "Акции",
-          "avg_price_rub": 143.393853,
-          "cost_basis_rub": 60655.6
+          "avg_price_rub": 127.376448,
+          "cost_basis_rub": 114384.05
         },
         {
           "name": "Корпоративный Центр Икс 5",
           "ticker": "X5",
           "boardid": "TQBR",
-          "quantity": 100,
+          "quantity": 101,
           "unit": "shares",
-          "quantity_label": "100",
+          "quantity_label": "101",
           "asset_class": "Акции",
-          "avg_price_rub": 2494.4147,
-          "cost_basis_rub": 249441.47
+          "avg_price_rub": 2486.400990,
+          "cost_basis_rub": 251126.50
         },
         {
           "name": "Яндекс",
@@ -247,8 +247,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "shares",
           "quantity_label": "50",
           "asset_class": "Акции",
-          "avg_price_rub": 4263.3884,
-          "cost_basis_rub": 213169.42
+          "avg_price_rub": 4260.420000,
+          "cost_basis_rub": 213021.00
         },
         {
           "name": "ГК Самолет БО-П11",
@@ -258,8 +258,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "45",
           "asset_class": "Облигации",
-          "avg_price_rub": 1083.194889,
-          "cost_basis_rub": 48743.77
+          "avg_price_rub": 1051.320000,
+          "cost_basis_rub": 47309.40
         },
         {
           "name": "АПРИ БО-002Р-05",
@@ -269,8 +269,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "1",
           "asset_class": "Облигации",
-          "avg_price_rub": 1013.15,
-          "cost_basis_rub": 1013.15
+          "avg_price_rub": 1009.380000,
+          "cost_basis_rub": 1009.38
         },
         {
           "name": "КАМАЗ БО-П14",
@@ -280,8 +280,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "15",
           "asset_class": "Облигации",
-          "avg_price_rub": 1026.574,
-          "cost_basis_rub": 15398.61
+          "avg_price_rub": 1020.430000,
+          "cost_basis_rub": 15306.45
         },
         {
           "name": "МТС 001P-28",
@@ -291,8 +291,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "50",
           "asset_class": "Облигации",
-          "avg_price_rub": 1029.138,
-          "cost_basis_rub": 51456.9
+          "avg_price_rub": 1032.162000,
+          "cost_basis_rub": 51608.10
         },
         {
           "name": "АПРИ БО-002Р-09",
@@ -302,8 +302,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "100",
           "asset_class": "Облигации",
-          "avg_price_rub": 1003.0555,
-          "cost_basis_rub": 100305.55
+          "avg_price_rub": 995.927000,
+          "cost_basis_rub": 99592.70
         },
         {
           "name": "МВ Финанс 001Р-06",
@@ -313,8 +313,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "100",
           "asset_class": "Облигации",
-          "avg_price_rub": 1031.6351,
-          "cost_basis_rub": 103163.51
+          "avg_price_rub": 1038.461000,
+          "cost_basis_rub": 103846.10
         },
         {
           "name": "Энергоника 001Р-06",
@@ -324,8 +324,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "5",
           "asset_class": "Облигации",
-          "avg_price_rub": 1066.302,
-          "cost_basis_rub": 5331.51
+          "avg_price_rub": 1073.700000,
+          "cost_basis_rub": 5368.50
         },
         {
           "name": "АБЗ-1 002P-03",
@@ -335,8 +335,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "100",
           "asset_class": "Облигации",
-          "avg_price_rub": 1127.914,
-          "cost_basis_rub": 112791.4
+          "avg_price_rub": 1120.480000,
+          "cost_basis_rub": 112048.00
         },
         {
           "name": "Полипласт П02-БО-05",
@@ -346,8 +346,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "28",
           "asset_class": "Облигации",
-          "avg_price_rub": 1086.21,
-          "cost_basis_rub": 30413.88
+          "avg_price_rub": 1080.890000,
+          "cost_basis_rub": 30264.92
         },
         {
           "name": "РОЛЬФ БО 001Р-08",
@@ -357,8 +357,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "20",
           "asset_class": "Облигации",
-          "avg_price_rub": 1053.155,
-          "cost_basis_rub": 21063.1
+          "avg_price_rub": 1044.035000,
+          "cost_basis_rub": 20880.70
         },
         {
           "name": "Миррико БО-П03",
@@ -368,8 +368,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "1",
           "asset_class": "Облигации",
-          "avg_price_rub": 991.14,
-          "cost_basis_rub": 991.14
+          "avg_price_rub": 989.410000,
+          "cost_basis_rub": 989.41
         },
         {
           "name": "Гельтек-Медика БО-01",
@@ -379,8 +379,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "50",
           "asset_class": "Облигации",
-          "avg_price_rub": 1113.2952,
-          "cost_basis_rub": 55664.76
+          "avg_price_rub": 1118.526000,
+          "cost_basis_rub": 55926.30
         },
         {
           "name": "Энергоника 001Р-07",
@@ -390,8 +390,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "1",
           "asset_class": "Облигации",
-          "avg_price_rub": 1017.65,
-          "cost_basis_rub": 1017.65
+          "avg_price_rub": 1004.020000,
+          "cost_basis_rub": 1004.02
         },
         {
           "name": "ЛК Роделен БО 002P-05",
@@ -401,8 +401,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "13",
           "asset_class": "Облигации",
-          "avg_price_rub": 1004.963846,
-          "cost_basis_rub": 13064.53
+          "avg_price_rub": 1004.333077,
+          "cost_basis_rub": 13056.33
         },
         {
           "name": "ОФЗ 26235",
@@ -412,8 +412,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "50",
           "asset_class": "Облигации",
-          "avg_price_rub": 713.41,
-          "cost_basis_rub": 35670.5
+          "avg_price_rub": 714.832000,
+          "cost_basis_rub": 35741.60
         },
         {
           "name": "ОФЗ 26238",
@@ -423,8 +423,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "251",
           "asset_class": "Облигации",
-          "avg_price_rub": 510.31,
-          "cost_basis_rub": 128087.81
+          "avg_price_rub": 625.003466,
+          "cost_basis_rub": 156875.87
         },
         {
           "name": "ОФЗ 26248",
@@ -434,8 +434,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "200",
           "asset_class": "Облигации",
-          "avg_price_rub": 792.79,
-          "cost_basis_rub": 158558
+          "avg_price_rub": 933.360400,
+          "cost_basis_rub": 186672.08
         },
         {
           "name": "ОФЗ 26253",
@@ -445,8 +445,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "213",
           "asset_class": "Облигации",
-          "avg_price_rub": 841.5,
-          "cost_basis_rub": 179239.5
+          "avg_price_rub": 901.358920,
+          "cost_basis_rub": 191989.45
         },
         {
           "name": "ВИМ – Ликвидность",
@@ -456,8 +456,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "2214",
           "asset_class": "Фонды",
-          "avg_price_rub": 1.908392,
-          "cost_basis_rub": 4225.18
+          "avg_price_rub": 1.907525,
+          "cost_basis_rub": 4223.26
         },
         {
           "name": "Первая – Фонд Валютных Облигаций",
@@ -467,8 +467,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "3",
           "asset_class": "Фонды",
-          "avg_price_rub": 1408.57,
-          "cost_basis_rub": 4225.71
+          "avg_price_rub": 1406.666667,
+          "cost_basis_rub": 4220.00
         },
         {
           "name": "Российские облигации",
@@ -500,8 +500,8 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "1",
           "asset_class": "Фонды",
-          "avg_price_rub": 13.123054,
-          "cost_basis_rub": 13.12
+          "avg_price_rub": 14.000000,
+          "cost_basis_rub": 14.00
         },
         {
           "name": "Акции роста",
@@ -522,7 +522,7 @@ window.RADAR_PORTFOLIO = [
           "unit": "units",
           "quantity_label": "1",
           "asset_class": "Фонды",
-          "avg_price_rub": 162.68,
+          "avg_price_rub": 162.680000,
           "cost_basis_rub": 162.68
         },
         {
