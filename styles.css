@@ -46,3 +46,10 @@
 .owner-bond-donut{background:conic-gradient(#5ed0bf 0 48%,#ffc55c 48% 88%,#44b7e8 88% 100%)}
 .owner-total-donut{background:conic-gradient(#c47cf4 0 65%,#5ed0bf 65% 100%)}
 @media(max-width:1500px){.owner-structure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.owner-structure-grid{grid-template-columns:1fr}}
+
+.owner-structure-body .owner-reference-donut{width:150px;height:150px;flex:0 0 150px}
+.owner-structure-body .owner-reference-donut:after{inset:31px;background:#071c2c}
+.owner-structure-body .owner-reference-donut span{font-size:25px;font-weight:900;line-height:1;color:#fff;z-index:2}
+.owner-structure-body .owner-reference-donut span small{font-size:10px;color:#78a7d5;margin-top:7px;font-weight:700}
+.owner-structure-body{grid-template-columns:160px minmax(0,1fr)}
+@media(max-width:1500px){.owner-structure-body .owner-reference-donut{width:138px;height:138px}.owner-structure-body{grid-template-columns:148px minmax(0,1fr)}}
