@@ -53,3 +53,7 @@
 .owner-structure-body .owner-reference-donut span small{font-size:10px;color:#78a7d5;margin-top:7px;font-weight:700}
 .owner-structure-body{grid-template-columns:160px minmax(0,1fr)}
 @media(max-width:1500px){.owner-structure-body .owner-reference-donut{width:138px;height:138px}.owner-structure-body{grid-template-columns:148px minmax(0,1fr)}}
+
+.owner-structure-body .owner-stock-list{grid-template-columns:repeat(3,minmax(72px,1fr));column-gap:12px;max-height:none}
+@media(max-width:1500px){.owner-structure-body .owner-stock-list{grid-template-columns:repeat(2,minmax(80px,1fr))}}
+@media(max-width:900px){.owner-structure-body .owner-stock-list{grid-template-columns:1fr}}
