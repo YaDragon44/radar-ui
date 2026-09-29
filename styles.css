@@ -21,3 +21,5 @@
 .owner-subtabs{margin-top:-4px;padding:8px 12px}
 .owner-analysis{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(8,28,43,.72)}
 .owner-analysis h3{margin:0 0 14px}.owner-note{margin:14px 0 0;color:var(--muted);font-size:13px}
+
+.owner-news-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.owner-news-filters span{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px}.owner-news-card{border-top:1px solid var(--line);padding:14px 0}.owner-news-card h4{margin:6px 0}.owner-news-card p{color:var(--muted)}.owner-news-card small{display:block;color:var(--muted);margin-bottom:7px}.owner-news-card a{color:var(--cyan)}.empty-state{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}.empty-state strong{color:var(--text)}
