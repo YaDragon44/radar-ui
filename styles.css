@@ -38,3 +38,11 @@
 .owner-allocation-list{padding:8px 17px 18px;grid-template-columns:repeat(2,minmax(130px,1fr));max-height:230px;overflow:auto}.owner-allocation-list div{grid-template-columns:8px 1fr auto}.owner-allocation-list i{background:var(--cyan)}
 .owner-history-panel{margin-top:14px}.owner-history-panel .pw-no-data{min-height:240px}
 @media(max-width:1200px){.owner-structure-grid{grid-template-columns:1fr}.owner-allocation-list{grid-template-columns:repeat(2,minmax(120px,1fr))}}
+
+.owner-structure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.owner-structure-body{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center;padding:8px 14px 16px}
+.owner-structure-body .allocation-donut{width:112px;height:112px}.owner-structure-body .allocation-donut:after{inset:27px}.owner-structure-body .allocation-donut span{font-size:18px}.owner-structure-body .owner-allocation-list{padding:0;display:grid;grid-template-columns:1fr;max-height:180px}
+.owner-stock-donut{background:conic-gradient(#c47cf4 0 28%,#5ed0bf 28% 46%,#ffc55c 46% 59%,#44b7e8 59% 70%,#ff8066 70% 80%,#8b8ff5 80% 89%,#3fe0a5 89% 100%)}
+.owner-bond-donut{background:conic-gradient(#5ed0bf 0 48%,#ffc55c 48% 88%,#44b7e8 88% 100%)}
+.owner-total-donut{background:conic-gradient(#c47cf4 0 65%,#5ed0bf 65% 100%)}
+@media(max-width:1500px){.owner-structure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.owner-structure-grid{grid-template-columns:1fr}}
