@@ -32,3 +32,9 @@
 .owner-workspace .allocation-donut{background:conic-gradient(#c47cf4 0 65%,#5ed0bf 65% 99.7%,#ffc55c 99.7% 100%)}
 .owner-workspace .pw-loss strong{color:var(--red)}
 @media(max-width:1200px){.owner-workspace .pw-analytics{grid-template-columns:1fr}.owner-workspace .pw-kpis{grid-template-columns:repeat(2,1fr)}}
+
+.owner-structure-grid{display:grid;grid-template-columns:1fr 1fr .72fr;gap:12px;margin-top:14px}
+.owner-structure-summary{display:flex;justify-content:space-between;align-items:baseline;padding:16px 17px 8px}.owner-structure-summary strong{font-size:24px}.owner-structure-summary span{color:var(--muted);font-size:11px}
+.owner-allocation-list{padding:8px 17px 18px;grid-template-columns:repeat(2,minmax(130px,1fr));max-height:230px;overflow:auto}.owner-allocation-list div{grid-template-columns:8px 1fr auto}.owner-allocation-list i{background:var(--cyan)}
+.owner-history-panel{margin-top:14px}.owner-history-panel .pw-no-data{min-height:240px}
+@media(max-width:1200px){.owner-structure-grid{grid-template-columns:1fr}.owner-allocation-list{grid-template-columns:repeat(2,minmax(120px,1fr))}}
