@@ -27,3 +27,8 @@
 .owner-news-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.owner-news-filters span{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px}.owner-news-card{border-top:1px solid var(--line);padding:14px 0}.owner-news-card h4{margin:6px 0}.owner-news-card p{color:var(--muted)}.owner-news-card small{display:block;color:var(--muted);margin-bottom:7px}.owner-news-card a{color:var(--cyan)}.empty-state{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}.empty-state strong{color:var(--text)}
 
 .pw-row>span:nth-child(3){white-space:nowrap;min-width:0}.pw-row>strong:nth-child(4){padding-left:12px;white-space:nowrap}
+
+.owner-workspace .pw-kpis+.pw-analytics{margin-top:14px}
+.owner-workspace .allocation-donut{background:conic-gradient(#c47cf4 0 65%,#5ed0bf 65% 99.7%,#ffc55c 99.7% 100%)}
+.owner-workspace .pw-loss strong{color:var(--red)}
+@media(max-width:1200px){.owner-workspace .pw-analytics{grid-template-columns:1fr}.owner-workspace .pw-kpis{grid-template-columns:repeat(2,1fr)}}
