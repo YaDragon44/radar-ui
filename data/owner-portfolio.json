@@ -17,7 +17,7 @@
   },
   "portfolio": {
     "value_rub": 3345551.01,
-    "cost_basis_rub": 3578196.94,
+    "cost_basis_rub": 3594436.94,
     "composition_as_of": "2026-09-29",
     "valuation_as_of": "2026-09-29",
     "asset_mix_pct": {
@@ -443,6 +443,17 @@
         "asset_class": "Фонды",
         "avg_price_rub": 162.68,
         "cost_basis_rub": 162.68
+      },
+      {
+        "name": "Совко Капитал 001Р-01",
+        "ticker": "RU000A10DSY4",
+        "boardid": null,
+        "quantity": 16,
+        "unit": "units",
+        "quantity_label": "16",
+        "asset_class": "Облигации",
+        "avg_price_rub": 1015,
+        "cost_basis_rub": 16240
       }
     ]
   },
@@ -473,16 +484,20 @@
         "operation": "SELL",
         "quantity": 75,
         "proceeds_rub": 76089
-      }
-    ],
-    "pending_identification": [
+      },
       {
-        "issuer_text": "Совкомбанк (название выпуска обрезано на скриншоте)",
+        "ticker": "RU000A10DSY4",
+        "name": "Совко Капитал 001Р-01",
         "operation": "BUY",
         "quantity": 16,
-        "amount_rub": 16406.56,
-        "reason": "Exact bond issue / ISIN is not visible; not added to canonical positions until identified."
+        "clean_price_rub": 1015,
+        "clean_cost_basis_rub": 16240,
+        "accrued_interest_rub": 166.56,
+        "cash_amount_rub": 16406.56,
+        "commission_rub": 6.5,
+        "security_id_source": "MOEX"
       }
-    ]
+    ],
+    "pending_identification": []
   }
 }
