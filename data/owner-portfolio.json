@@ -8,16 +8,16 @@
   "currency": "RUB",
   "quality": "PARTIAL",
   "status": "PARTIAL_CURRENT",
-  "composition_as_of": "2026-09-29",
+  "composition_as_of": "2026-09-30",
   "valuation_as_of": "2026-09-29",
-  "published_at": "2026-09-29T16:11:00+03:00",
+  "published_at": "2026-09-30T11:15:00+03:00",
   "source": {
     "type": "OWNER_CONFIRMED_BROKER_SCREENSHOTS",
     "canonical": true
   },
   "portfolio": {
     "value_rub": 3345551.01,
-    "cost_basis_rub": 3596555.41,
+    "cost_basis_rub": 3578196.94,
     "composition_as_of": "2026-09-29",
     "valuation_as_of": "2026-09-29",
     "asset_mix_pct": {
@@ -173,12 +173,12 @@
         "name": "ВК",
         "ticker": "VKCO",
         "boardid": "TQBR",
-        "quantity": 898,
+        "quantity": 901,
         "unit": "shares",
-        "quantity_label": "898",
+        "quantity_label": "901",
         "asset_class": "Акции",
-        "avg_price_rub": 127.376448,
-        "cost_basis_rub": 114384.05
+        "avg_price_rub": 127.327747,
+        "cost_basis_rub": 114722.3
       },
       {
         "name": "Корпоративный Центр Икс 5",
@@ -261,12 +261,12 @@
         "name": "МВ Финанс 001Р-06",
         "ticker": "RU000A10BFP3",
         "boardid": null,
-        "quantity": 100,
+        "quantity": 25,
         "unit": "units",
-        "quantity_label": "100",
+        "quantity_label": "25",
         "asset_class": "Облигации",
         "avg_price_rub": 1038.461,
-        "cost_basis_rub": 103846.1
+        "cost_basis_rub": 25961.53
       },
       {
         "name": "Энергоника 001Р-06",
@@ -294,12 +294,12 @@
         "name": "Полипласт П02-БО-05",
         "ticker": "RU000A10BPN7",
         "boardid": null,
-        "quantity": 28,
+        "quantity": 85,
         "unit": "units",
-        "quantity_label": "28",
+        "quantity_label": "85",
         "asset_class": "Облигации",
-        "avg_price_rub": 1080.89,
-        "cost_basis_rub": 30264.92
+        "avg_price_rub": 1032.222941,
+        "cost_basis_rub": 87738.95
       },
       {
         "name": "РОЛЬФ БО 001Р-08",
@@ -349,12 +349,12 @@
         "name": "ЛК Роделен БО 002P-05",
         "ticker": "RU000A10EQD0",
         "boardid": null,
-        "quantity": 13,
+        "quantity": 15,
         "unit": "units",
-        "quantity_label": "13",
+        "quantity_label": "15",
         "asset_class": "Облигации",
-        "avg_price_rub": 1004.333077,
-        "cost_basis_rub": 13056.33
+        "avg_price_rub": 984.676667,
+        "cost_basis_rub": 14770.15
       },
       {
         "name": "ОФЗ 26235",
@@ -443,6 +443,45 @@
         "asset_class": "Фонды",
         "avg_price_rub": 162.68,
         "cost_basis_rub": 162.68
+      }
+    ]
+  },
+  "update_evidence": {
+    "type": "OWNER_BROKER_OPERATIONS_SCREENSHOTS",
+    "as_of": "2026-09-30T11:15:00+03:00",
+    "applied": [
+      {
+        "ticker": "VKCO",
+        "operation": "BUY",
+        "quantity": 3,
+        "amount_rub": 338.25
+      },
+      {
+        "ticker": "RU000A10BPN7",
+        "operation": "BUY",
+        "quantity": 57,
+        "amount_rub": 57474.03
+      },
+      {
+        "ticker": "RU000A10EQD0",
+        "operation": "BUY",
+        "quantity": 2,
+        "amount_rub": 1713.82
+      },
+      {
+        "ticker": "RU000A10BFP3",
+        "operation": "SELL",
+        "quantity": 75,
+        "proceeds_rub": 76089
+      }
+    ],
+    "pending_identification": [
+      {
+        "issuer_text": "Совкомбанк (название выпуска обрезано на скриншоте)",
+        "operation": "BUY",
+        "quantity": 16,
+        "amount_rub": 16406.56,
+        "reason": "Exact bond issue / ISIN is not visible; not added to canonical positions until identified."
       }
     ]
   }
