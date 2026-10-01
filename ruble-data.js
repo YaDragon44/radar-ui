@@ -1,6 +1,7 @@
 window.RADAR_RUBLE = {
   as_of: "2026-10-01T16:51:00+03:00",
   status: "NEUTRAL",
+  headline: {rate:"83,5588 ₽", change_1d:"−1,03%", ruble_direction:"УКРЕПЛЕНИЕ", direction_symbol:"↑", basis:"USD/RUB ЦБ: 84,4283 → 83,5588", source_date:"01.10.2026"},
   status_label: "🟡 НЕЙТРАЛЬНО",
   why: ["Высокая ключевая ставка 14% поддерживает рубль", "Инфляция 6,3% остаётся выше цели 4%", "По части потоковых индикаторов нет свежих подтверждённых данных"],
   indicators: [
