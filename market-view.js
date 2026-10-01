@@ -7,6 +7,7 @@ const status=(label,tone="na")=>'<span class="mv-status '+tone+'">'+esc(label)+'
 const qTone=q=>q==="LIVE"?"good":q==="DELAYED"||q==="PARTIAL"?"warn":q==="ERROR"||q==="STALE"?"bad":"na";
 const fmtDay=d=>{const x=new Date(d+"T00:00:00");return Number.isNaN(x)?esc(d):x.toLocaleDateString("ru-RU",{day:"2-digit",month:"short"})};
 let selectedPeriod="3M";
+let selectedMarketSection="OVERVIEW";
 function periodHistory(hist,key){
  if(key==="ALL")return hist;
  const days={ "1M":31,"3M":92,"6M":184 }[key], last=new Date(hist.at(-1)?.day+"T00:00:00");
@@ -26,8 +27,19 @@ function episodes(hist){
  return '<div class="mv-timeline">'+groups.slice(-4).map(x=>'<div class="mv-episode '+(x.crash?"crash":"")+'"><i></i><span>'+fmtDay(x.start)+(x.end!==x.start?" — "+fmtDay(x.end):"")+'</span><strong>'+esc(x.crash?"CRASH":"HIGH RISK")+'</strong><small>Peak Crash Score '+num(x.peak)+'</small></div>').join("")+'</div>';
 }
 function insight(fact,hypothesis,discipline){return '<div class="mv-insights"><div><b>Факт</b><p>'+fact+'</p></div><div><b>Гипотеза</b><p>'+hypothesis+'</p></div><div><b>Режим наблюдения</b><p>'+discipline+'</p></div></div>'}
+
+function renderRuble(){
+ const list=document.getElementById("today-list"),r=window.RADAR_RUBLE;if(!list)return;
+ if(!r){list.innerHTML='<section class="market-view market-unavailable"><p>USD/RUB: подтверждённые данные недоступны.</p><b>N/A</b></section>';return;}
+ const rows=r.indicators.map(x=>'<div class="rub-row"><div><strong>'+esc(x.name)+'</strong><small>'+esc(x.source_date)+'</small></div><b>'+esc(x.value)+'</b><span>'+esc(x.direction)+' '+esc(x.detail)+'</span><em>'+esc(x.effect)+'</em><i class="'+x.tone+'"></i></div>').join("");
+ const dates=r.dates.map(x=>'<div><span>'+esc(x.name)+'</span><strong>'+esc(x.date)+'</strong></div>').join("");
+ list.innerHTML='<section class="market-view rub-view"><nav class="market-subtabs"><button data-market-section="OVERVIEW">Обзор</button><button class="is-active" data-market-section="USDRUB">USD/RUB</button></nav><header class="rub-head"><div><p class="eyebrow">MARKET / USD-RUB</p><h2>USD/RUB</h2><p>Курс и фундаментальная поддержка рубля · без прогноза курса</p></div><div class="mv-source">'+status(r.status_label,"warn")+'<time>'+esc(r.as_of)+'</time></div></header><div class="rub-layout"><article class="mv-panel rub-chart"><header><h3>USD/RUB.P</h3><span>TradingView</span></header><iframe title="USD/RUB.P chart" src="https://s.tradingview.com/widgetembed/?symbol=RUS%3AUSDRUB.P&interval=D&theme=dark&style=1&hide_top_toolbar=0&saveimage=0&studies=%5B%22STD%3BMA%22%5D" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></article><article class="mv-panel rub-card"><header><div><h3>РУБЛЬ — ФУНДАМЕНТАЛЬНЫЕ ИНДИКАТОРЫ</h3><span>не прогноз · fail-closed</span></div>'+status(r.status_label,"warn")+'</header><div class="rub-rows">'+rows+'</div><div class="rub-why"><b>Почему статус:</b> '+r.why.map(esc).join(" · ")+'</div></article></div><article class="mv-panel rub-dates"><header><h3>Ближайшие контрольные даты</h3><span>только подтверждённые</span></header><div>'+dates+'</div></article></section>';
+ list.querySelectorAll("[data-market-section]").forEach(b=>b.addEventListener("click",()=>{selectedMarketSection=b.dataset.marketSection;selectedMarketSection==="USDRUB"?renderRuble():renderMarket()}));
+}
+
 function renderMarket(){
  const list=document.getElementById("today-list"),empty=document.getElementById("empty-state");if(!list)return;
+ if(selectedMarketSection==="USDRUB"){renderRuble();return;}
  const m=window.RADAR_MARKET;
  if(!m||m.type!=="MARKET_STATE"||!["LIVE","DELAYED"].includes(m.quality)||!m.data){
   list.innerHTML='<section class="market-view market-unavailable"><div><p class="eyebrow">MARKET</p><h2>Обзор рынка</h2><p>Подтверждённый MARKET_STATE недоступен. RADAR не подставляет ручные значения.</p></div><b>N/A</b></section>';if(empty)empty.hidden=true;return;
@@ -54,7 +66,7 @@ function renderMarket(){
  const fact="Crash State: "+esc(regime)+", Crash Score "+num(c.score)+" / 100, critical confirmations "+(has(c.critical_confirmations)?num(c.critical_confirmations):"N/A")+". "+breadthText;
  const hypo="Ослабление breadth и отрицательная 5D-динамика могут требовать дальнейшего подтверждения; это не прогноз и не решение.";
  const discipline="Проверять свежесть и качество источника; не превращать "+esc(gate.stage||"N/A")+" в торговую команду. Направление RADAR: N/A.";
- list.innerHTML='<section class="market-view"><header class="mv-head"><div><p class="eyebrow">MARKET / RUSSIA</p><h2>Обзор рынка</h2><p>Слой состояния рынка. FACT, ANALYSIS и DECISION не смешиваются.</p></div><div class="mv-source">'+status(m.quality,qTone(m.quality))+'<small>Source: '+source+'</small><time>'+published+'</time></div></header>'
+ list.innerHTML='<section class="market-view"><nav class="market-subtabs"><button class="is-active" data-market-section="OVERVIEW">Обзор</button><button data-market-section="USDRUB">USD/RUB</button></nav><header class="mv-head"><div><p class="eyebrow">MARKET / RUSSIA</p><h2>Обзор рынка</h2><p>Слой состояния рынка. FACT, ANALYSIS и DECISION не смешиваются.</p></div><div class="mv-source">'+status(m.quality,qTone(m.quality))+'<small>Source: '+source+'</small><time>'+published+'</time></div></header>'
  +'<section class="mv-grid mv-state mv-kpis"><article><span>Market regime</span><strong>'+esc(regime)+'</strong><em>Source Crash State</em>'+status(m.quality,regimeTone)+'</article>'
  +'<article><span>Market risk</span><strong>'+num(c.score)+' <small>/ 100</small></strong><em>Crash Score · source output</em>'+status("не probability", "na")+'</article>'
  +'<article><span>Main market signal</span><strong>'+esc(dir.value||"N/A")+'</strong><em>'+(dir.value?"Direction · source":"Direction не подтверждён источником")+'</em>'+status(dir.quality||"N/A",qTone(dir.quality))+'</article>'
@@ -66,6 +78,7 @@ function renderMarket(){
  +'<article class="mv-panel mv-history"><header><div><h3>Исторические source-эпизоды</h3><span>маркировка из доступной history, не validation</span></div><span>'+num(hist.length)+' snapshots</span></header>'+episodes(hist)+'</article>'
  +'<footer class="mv-foot"><span>Source: '+source+' · '+esc(m.source?.ref||"—")+'</span><span>Provider: '+esc(m.source?.provider||"—")+'</span><span>Updated: '+published+'</span><span>Quality: '+esc(m.quality)+'</span></footer></section>';
  list.querySelectorAll("[data-period]").forEach(btn=>btn.addEventListener("click",()=>{selectedPeriod=btn.dataset.period;renderMarket()}));
+ list.querySelectorAll("[data-market-section]").forEach(btn=>btn.addEventListener("click",()=>{selectedMarketSection=btn.dataset.marketSection;selectedMarketSection==="USDRUB"?renderRuble():renderMarket()}));
  if(empty)empty.hidden=true;
 }
 function bind(){
