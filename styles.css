@@ -81,3 +81,9 @@
 .today-indicator>small{align-self:end;min-height:18px}
 .today-list:not(.has-portfolio){align-items:stretch}
 .today-list:not(.has-portfolio)>.decision-card{height:100%}
+
+/* TODAY baseline is the single compact home-status surface. */
+.today-base-indicators{grid-column:1/-1;width:100%}
+.today-indicator-grid{width:100%;grid-template-columns:repeat(3,minmax(0,1fr))}
+.today-indicator{width:100%;min-height:154px;max-height:154px}
+@media(max-width:800px){.today-indicator{max-height:none}}
