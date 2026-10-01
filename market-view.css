@@ -37,3 +37,5 @@
 .rub-row{font-size:15.4px;min-height:72px;line-height:1.35}.rub-row small{font-size:14px}.rub-row b{font-size:16.8px}.rub-row i{width:13px;height:13px}
 .rub-why{font-size:15.4px;line-height:1.5}
 .rub-dates span{font-size:14px}.rub-dates strong{font-size:16.8px}
+
+.rub-headline{display:flex;gap:28px;margin-top:18px}.rub-headline>div{display:grid;gap:4px;padding-right:28px;border-right:1px solid var(--line)}.rub-headline>div:last-child{border-right:0}.rub-headline span{color:var(--muted);font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.rub-headline strong{font-size:28px;line-height:1.15}.rub-headline em{color:#8fa3b8;font-size:14px;font-style:normal}.rub-direction.up{color:var(--green)}.rub-direction.down{color:var(--red)}.rub-direction.flat{color:#ffc85a}@media(max-width:700px){.rub-headline{display:grid;gap:14px}.rub-headline>div{border-right:0;padding-right:0}}
