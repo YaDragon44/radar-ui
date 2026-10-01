@@ -39,3 +39,14 @@
 .rub-dates span{font-size:14px}.rub-dates strong{font-size:16.8px}
 
 .rub-headline{display:flex;gap:28px;margin-top:18px}.rub-headline>div{display:grid;gap:4px;padding-right:28px;border-right:1px solid var(--line)}.rub-headline>div:last-child{border-right:0}.rub-headline span{color:var(--muted);font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.rub-headline strong{font-size:28px;line-height:1.15}.rub-headline em{color:#8fa3b8;font-size:14px;font-style:normal}.rub-direction.up{color:var(--green)}.rub-direction.down{color:var(--red)}.rub-direction.flat{color:#ffc85a}@media(max-width:700px){.rub-headline{display:grid;gap:14px}.rub-headline>div{border-right:0;padding-right:0}}
+
+/* USD/RUB compact reference header */
+.rub-head.rub-head-compact{display:grid;grid-template-columns:minmax(310px,1.25fr) minmax(180px,.42fr) minmax(390px,1.35fr) minmax(190px,.5fr);gap:0;align-items:center;padding:16px 20px;min-height:106px}
+.rub-title{padding-right:28px}.rub-title .eyebrow{margin:0 0 6px;font-size:14px;letter-spacing:.12em}.rub-title h2{margin:0 0 6px;font-size:38px;line-height:1}.rub-title>p:last-child{font-size:14px}
+.rub-head-metric,.rub-head-analysis{display:grid;align-content:center;min-height:72px;padding:0 24px;border-left:1px solid var(--line)}
+.rub-head-metric span,.rub-head-analysis>span{color:#8fa3b8;font-size:13px;font-weight:850;letter-spacing:.08em}.rub-head-metric strong{margin-top:5px;font-size:28px;line-height:1}.rub-head-metric em,.rub-head-analysis em{margin-top:7px;color:#8fa3b8;font-size:13px;font-style:normal}
+.rub-head-analysis strong{margin-top:6px;font-size:26px;line-height:1.05;white-space:nowrap}.rub-head-analysis .up{color:#27e79a}.rub-head-analysis .down{color:#ff6575}
+.rub-head-state{display:grid;gap:10px;justify-items:end;align-content:center;text-align:right}.rub-head-state .mv-status{margin:0}.rub-head-state time{font-size:13px;color:#d6e0ea}
+.rub-head-compact .rub-headline,.rub-head-compact>.mv-source{display:none}
+@media(max-width:1200px){.rub-head.rub-head-compact{grid-template-columns:1fr 1fr}.rub-head-analysis,.rub-head-state{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.rub-head-state{justify-items:start;text-align:left}}
+@media(max-width:700px){.rub-head.rub-head-compact{grid-template-columns:1fr}.rub-head-metric,.rub-head-analysis,.rub-head-state{border-left:0;border-top:1px solid var(--line);padding:14px 0 0;margin-top:14px}.rub-head-analysis strong{white-space:normal}}
