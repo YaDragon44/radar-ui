@@ -8,18 +8,17 @@
   "currency": "RUB",
   "quality": "PARTIAL",
   "status": "PARTIAL_CURRENT",
-  "composition_as_of": "2026-09-30",
-  "valuation_as_of": "2026-09-29",
-  "published_at": "2026-09-30T11:15:00+03:00",
+  "composition_as_of": "2026-10-02",
+  "valuation_as_of": "2026-10-02",
+  "published_at": "2026-10-02T13:35:00+03:00",
   "source": {
     "type": "OWNER_CONFIRMED_BROKER_SCREENSHOTS",
     "canonical": true
   },
   "portfolio": {
-    "value_rub": 3345551.01,
-    "cost_basis_rub": 3594436.94,
-    "composition_as_of": "2026-09-29",
-    "valuation_as_of": "2026-09-29",
+    "value_rub": 3356611.52,
+    "composition_as_of": "2026-10-02",
+    "valuation_as_of": "2026-10-02",
     "asset_mix_pct": {
       "Акции": 65,
       "Облигации": 34.7,
@@ -30,12 +29,12 @@
         "name": "Циан",
         "ticker": "CNRU",
         "boardid": "TQBR",
-        "quantity": 12,
+        "quantity": 30,
         "unit": "shares",
-        "quantity_label": "12",
+        "quantity_label": "30",
         "asset_class": "Акции",
-        "avg_price_rub": 589.316667,
-        "cost_basis_rub": 7071.8
+        "avg_price_rub": 631.1866666666666,
+        "cost_basis_rub": 18935.6
       },
       {
         "name": "Группа Аренадата",
@@ -162,56 +161,45 @@
         "name": "Т-Технологии",
         "ticker": "T",
         "boardid": "TQBR",
-        "quantity": 807,
+        "quantity": 810,
         "unit": "shares",
-        "quantity_label": "807",
+        "quantity_label": "810",
         "asset_class": "Акции",
-        "avg_price_rub": 311.133284,
-        "cost_basis_rub": 251084.56
+        "avg_price_rub": 310.9098271604938,
+        "cost_basis_rub": 251836.96
       },
       {
         "name": "ВК",
         "ticker": "VKCO",
         "boardid": "TQBR",
-        "quantity": 901,
+        "quantity": 1055,
         "unit": "shares",
-        "quantity_label": "901",
+        "quantity_label": "1055",
         "asset_class": "Акции",
-        "avg_price_rub": 127.327747,
-        "cost_basis_rub": 114722.3
+        "avg_price_rub": 125.14426540284362,
+        "cost_basis_rub": 132027.2
       },
       {
         "name": "Корпоративный Центр Икс 5",
         "ticker": "X5",
         "boardid": "TQBR",
-        "quantity": 101,
+        "quantity": 110,
         "unit": "shares",
-        "quantity_label": "101",
+        "quantity_label": "110",
         "asset_class": "Акции",
-        "avg_price_rub": 2486.40099,
-        "cost_basis_rub": 251126.5
+        "avg_price_rub": 2435.1954545454546,
+        "cost_basis_rub": 267871.5
       },
       {
         "name": "Яндекс",
         "ticker": "YDEX",
         "boardid": "TQBR",
-        "quantity": 50,
+        "quantity": 55,
         "unit": "shares",
-        "quantity_label": "50",
+        "quantity_label": "55",
         "asset_class": "Акции",
-        "avg_price_rub": 4260.42,
-        "cost_basis_rub": 213021
-      },
-      {
-        "name": "ГК Самолет БО-П11",
-        "ticker": "RU000A104JQ3",
-        "boardid": null,
-        "quantity": 45,
-        "unit": "units",
-        "quantity_label": "45",
-        "asset_class": "Облигации",
-        "avg_price_rub": 1051.32,
-        "cost_basis_rub": 47309.4
+        "avg_price_rub": 4196.409090909091,
+        "cost_basis_rub": 230802.5
       },
       {
         "name": "АПРИ БО-002Р-05",
@@ -261,23 +249,23 @@
         "name": "МВ Финанс 001Р-06",
         "ticker": "RU000A10BFP3",
         "boardid": null,
-        "quantity": 25,
+        "quantity": 18,
         "unit": "units",
-        "quantity_label": "25",
+        "quantity_label": "18",
         "asset_class": "Облигации",
-        "avg_price_rub": 1038.461,
-        "cost_basis_rub": 25961.53
+        "cost_basis_status": "PARTIAL — insufficient evidence",
+        "cost_basis_note": "Quantity confirmed by full broker snapshot 2026-10-02; clean cost / accrued interest / commission split not confirmed."
       },
       {
         "name": "Энергоника 001Р-06",
         "ticker": "RU000A10BNK8",
         "boardid": null,
-        "quantity": 5,
+        "quantity": 10,
         "unit": "units",
-        "quantity_label": "5",
+        "quantity_label": "10",
         "asset_class": "Облигации",
-        "avg_price_rub": 1073.7,
-        "cost_basis_rub": 5368.5
+        "cost_basis_status": "PARTIAL — insufficient evidence",
+        "cost_basis_note": "Quantity confirmed by full broker snapshot 2026-10-02; clean cost / accrued interest / commission split not confirmed."
       },
       {
         "name": "АБЗ-1 002P-03",
@@ -305,12 +293,12 @@
         "name": "РОЛЬФ БО 001Р-08",
         "ticker": "RU000A10BQ60",
         "boardid": null,
-        "quantity": 20,
+        "quantity": 50,
         "unit": "units",
-        "quantity_label": "20",
+        "quantity_label": "50",
         "asset_class": "Облигации",
-        "avg_price_rub": 1044.035,
-        "cost_basis_rub": 20880.7
+        "cost_basis_status": "PARTIAL — insufficient evidence",
+        "cost_basis_note": "Quantity confirmed by full broker snapshot 2026-10-02; clean cost / accrued interest / commission split not confirmed."
       },
       {
         "name": "Миррико БО-П03",
@@ -382,23 +370,23 @@
         "name": "ОФЗ 26248",
         "ticker": "SU26248RMFS3",
         "boardid": null,
-        "quantity": 200,
+        "quantity": 240,
         "unit": "units",
-        "quantity_label": "200",
+        "quantity_label": "240",
         "asset_class": "Облигации",
-        "avg_price_rub": 933.3604,
-        "cost_basis_rub": 186672.08
+        "cost_basis_status": "PARTIAL — insufficient evidence",
+        "cost_basis_note": "Quantity confirmed by full broker snapshot 2026-10-02; clean cost / accrued interest / commission split not confirmed."
       },
       {
         "name": "ОФЗ 26253",
         "ticker": "SU26253RMFS3",
         "boardid": null,
-        "quantity": 213,
+        "quantity": 240,
         "unit": "units",
-        "quantity_label": "213",
+        "quantity_label": "240",
         "asset_class": "Облигации",
-        "avg_price_rub": 901.35892,
-        "cost_basis_rub": 191989.45
+        "cost_basis_status": "PARTIAL — insufficient evidence",
+        "cost_basis_note": "Quantity confirmed by full broker snapshot 2026-10-02; clean cost / accrued interest / commission split not confirmed."
       },
       {
         "name": "ВИМ – Ликвидность",
@@ -455,49 +443,79 @@
         "avg_price_rub": 1015,
         "cost_basis_rub": 16240
       }
-    ]
+    ],
+    "cost_basis_status": "PARTIAL"
   },
   "update_evidence": {
-    "type": "OWNER_BROKER_OPERATIONS_SCREENSHOTS",
-    "as_of": "2026-09-30T11:15:00+03:00",
+    "type": "OWNER_CONFIRMED_BROKER_FULL_SNAPSHOT",
+    "as_of": "2026-10-02T13:35:00+03:00",
+    "mode": "FULL_SNAPSHOT",
+    "position_count": 38,
+    "broker_total_value_rub": 3356611.52,
+    "visible_positions_plus_cash_rub": 3356545.26,
+    "reconciliation_difference_rub": 66.26,
+    "notes": [
+      "Composition and quantities authoritative from full broker snapshot.",
+      "Bond clean cost / accrued interest / commission not inferred where quantities changed.",
+      "RUB cash 43.41 visible in broker snapshot is included in reconciliation control but not added as a security position."
+    ],
     "applied": [
       {
+        "ticker": "CNRU",
+        "quantity_from": 12,
+        "quantity_to": 30
+      },
+      {
+        "ticker": "T",
+        "quantity_from": 807,
+        "quantity_to": 810
+      },
+      {
         "ticker": "VKCO",
-        "operation": "BUY",
-        "quantity": 3,
-        "amount_rub": 338.25
+        "quantity_from": 901,
+        "quantity_to": 1055
       },
       {
-        "ticker": "RU000A10BPN7",
-        "operation": "BUY",
-        "quantity": 57,
-        "amount_rub": 57474.03
+        "ticker": "X5",
+        "quantity_from": 101,
+        "quantity_to": 110
       },
       {
-        "ticker": "RU000A10EQD0",
-        "operation": "BUY",
-        "quantity": 2,
-        "amount_rub": 1713.82
+        "ticker": "YDEX",
+        "quantity_from": 50,
+        "quantity_to": 55
       },
       {
         "ticker": "RU000A10BFP3",
-        "operation": "SELL",
-        "quantity": 75,
-        "proceeds_rub": 76089
+        "quantity_from": 25,
+        "quantity_to": 18
       },
       {
-        "ticker": "RU000A10DSY4",
-        "name": "Совко Капитал 001Р-01",
-        "operation": "BUY",
-        "quantity": 16,
-        "clean_price_rub": 1015,
-        "clean_cost_basis_rub": 16240,
-        "accrued_interest_rub": 166.56,
-        "cash_amount_rub": 16406.56,
-        "commission_rub": 6.5,
-        "security_id_source": "MOEX"
+        "ticker": "RU000A10BNK8",
+        "quantity_from": 5,
+        "quantity_to": 10
+      },
+      {
+        "ticker": "RU000A10BQ60",
+        "quantity_from": 20,
+        "quantity_to": 50
+      },
+      {
+        "ticker": "SU26248RMFS3",
+        "quantity_from": 200,
+        "quantity_to": 240
+      },
+      {
+        "ticker": "SU26253RMFS3",
+        "quantity_from": 213,
+        "quantity_to": 240
+      },
+      {
+        "ticker": "RU000A104JQ3",
+        "quantity_from": 45,
+        "quantity_to": 0,
+        "operation": "REMOVED_BY_AUTHORITATIVE_FULL_SNAPSHOT"
       }
-    ],
-    "pending_identification": []
+    ]
   }
 }
