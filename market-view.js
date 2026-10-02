@@ -45,7 +45,8 @@ function renderBtcd(){
 
 function renderMarket(){
  const list=document.getElementById("today-list"),empty=document.getElementById("empty-state");if(!list)return;
- if(selectedMarketSection==="USDRUB"){renderRuble();return;}\n if(selectedMarketSection==="BTCD"){renderBtcd();return;}
+ if(selectedMarketSection==="USDRUB"){renderRuble();return;}
+ if(selectedMarketSection==="BTCD"){renderBtcd();return;}
  const m=window.RADAR_MARKET;
  if(!m||m.type!=="MARKET_STATE"||!["LIVE","DELAYED"].includes(m.quality)||!m.data){
   list.innerHTML='<section class="market-view market-unavailable"><div><p class="eyebrow">MARKET</p><h2>Обзор рынка</h2><p>Подтверждённый MARKET_STATE недоступен. RADAR не подставляет ручные значения.</p></div><b>N/A</b></section>';if(empty)empty.hidden=true;return;
