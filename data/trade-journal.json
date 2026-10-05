@@ -1,0 +1,33 @@
+{
+  "schema": "radar.trade_journal.v1",
+  "updated_at": "2026-10-05T12:52:00+03:00",
+  "trades": [
+    {
+      "trade_id": "TR-0001",
+      "instrument": "SBRF-12.26",
+      "instrument_type": "Фьючерс",
+      "underlying": "Сбербанк ао",
+      "direction": "LONG",
+      "opened_at": "2026-10-05 12:50",
+      "quantity": 4,
+      "avg_entry": 28878.5,
+      "avg_exit": null,
+      "entry_fills": [
+        {
+          "time": "12:50",
+          "quantity": 2,
+          "price": 28879
+        },
+        {
+          "time": "12:52",
+          "quantity": 2,
+          "price": 28878
+        }
+      ],
+      "fees_rub": 28.88,
+      "pnl_rub": null,
+      "status": "OPEN",
+      "source": "user_screenshots"
+    }
+  ]
+}
