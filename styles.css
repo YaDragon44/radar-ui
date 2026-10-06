@@ -108,3 +108,11 @@
 .signal-news-card .signal-impact{margin:12px 0;color:#8fa3b8;font-size:12px;line-height:1.4}
 .signal-news-card .decision-action{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:#70869b}
 .signal-news-card .owner-news-card-top b{color:#dcecff}
+
+/* Global manual refresh control */
+.topbar-actions{display:grid;grid-template-columns:auto auto;grid-template-areas:"refresh system" "status system";align-items:center;gap:6px 14px}
+.global-refresh{grid-area:refresh;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:0 16px;border:1px solid var(--cyan);border-radius:10px;background:rgba(0,184,255,.08);color:var(--cyan);font:inherit;cursor:pointer}
+.global-refresh:hover,.global-refresh:focus-visible{background:rgba(0,184,255,.15);outline:none}
+.global-refresh-status{grid-area:status;max-width:260px;color:var(--muted);font-size:10px;text-align:right}
+.topbar-actions .system-state{grid-area:system}
+@media(max-width:700px){.topbar-actions{grid-template-columns:1fr;grid-template-areas:"refresh" "status" "system";justify-items:end}.global-refresh-status{max-width:none}}
