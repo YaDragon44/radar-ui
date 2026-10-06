@@ -79,8 +79,10 @@ const renderView=view=>{view=view==='TODAY'?'ALL':view;const isP=view==='PORTFOL
 document.querySelectorAll('.view-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.view-tab').forEach(x=>x.classList.toggle('is-active',x===b));renderView(b.dataset.view)});Promise.all([applyMasterOwnerPortfolio(),loadTradeJournal()]).finally(()=>renderView('ALL'));
 })();
 ;(()=>{"use strict";
-const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status");
+const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status"),updated=document.getElementById("global-refresh-updated");
 if(!button||!status)return;
 const workflowUrl="https://github.com/YaDragon44/radar/actions/workflows/global-manual-refresh.yml";
-button.addEventListener("click",()=>{status.textContent="Открываю защищённый запуск в GitHub…";window.open(workflowUrl,"_blank","noopener,noreferrer");});
+const stamp=window.RADAR_UPDATED_AT||document.getElementById("updated-at")?.textContent?.trim();
+if(updated&&stamp&&stamp!=="—")updated.textContent=stamp;
+button.addEventListener("click",()=>{status.textContent="Открываю защищённый запуск…";window.open(workflowUrl,"_blank","noopener,noreferrer");});
 })();
