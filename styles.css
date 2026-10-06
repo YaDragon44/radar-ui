@@ -101,3 +101,10 @@
 @media(max-width:1400px){.owner-news-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:1050px){.owner-news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.owner-news-grid{grid-template-columns:1fr}.owner-news-card{min-height:0}}
+
+
+/* SIGNALS follows Portfolio News & Ideas visual language */
+.signals-news-grid{margin-top:14px}
+.signal-news-card .signal-impact{margin:12px 0;color:#8fa3b8;font-size:12px;line-height:1.4}
+.signal-news-card .decision-action{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:#70869b}
+.signal-news-card .owner-news-card-top b{color:#dcecff}
