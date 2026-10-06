@@ -81,17 +81,9 @@ document.querySelectorAll('.view-tab').forEach(b=>b.onclick=()=>{document.queryS
 ;(()=>{"use strict";
 const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status");
 if(!button||!status)return;
-const endpoint=window.RADAR_CONTROL_PLANE_URL||document.querySelector('meta[name="radar-control-plane-url"]')?.content||"";
-const setState=(state,message)=>{button.dataset.state=state;button.disabled=state==="running";status.textContent=message};
-button.addEventListener("click",async()=>{
- if(!endpoint){setState("blocked","Control Plane не подключён — запуск заблокирован");return}
- setState("running","Запускаю обновление…");
- try{
-  const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({command:"global_manual_refresh",mode:"manual",publish:false,source:"radar-dashboard"})});
-  if(!response.ok)throw new Error("HTTP "+response.status);
-  const result=await response.json();
-  const runId=result.run_id||result.runId||"";
-  setState("accepted",runId?"Запуск принят · "+runId:"Запуск принят");
- }catch(error){setState("failed","Ошибка запуска · "+(error?.message||"unknown"))}
+const workflowUrl="https://github.com/YaDragon44/radar/actions/workflows/global-manual-refresh.yml";
+button.addEventListener("click",()=>{
+ status.textContent="Открываю защищённый запуск в GitHub…";
+ window.open(workflowUrl,"_blank","noopener,noreferrer");
 });
 })();
