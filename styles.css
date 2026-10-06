@@ -119,3 +119,13 @@
 .topbar-actions .system-state{padding-left:14px;border-left:1px solid var(--line)}
 @media(max-width:1050px){.topbar{flex-wrap:wrap}.topbar-actions{width:100%;justify-content:flex-end}}
 @media(max-width:700px){.topbar-actions{align-items:stretch;flex-wrap:wrap}.global-refresh{flex:1 1 160px}.refresh-meta{flex:1 1 150px}.topbar-actions .system-state{flex:1 1 160px}}
+
+/* Header control spacing: keep refresh/status in reserved right rail */
+@media(min-width:1200px){
+ .topbar{display:grid;grid-template-columns:minmax(280px,1fr) auto minmax(520px,1.35fr);align-items:center;column-gap:28px}
+ .topbar>div:first-child{grid-column:1}
+ .topbar-actions{grid-column:3;width:100%;justify-content:flex-end;gap:18px;margin-left:0}
+ .global-refresh{flex:0 0 auto}
+ .refresh-meta{min-width:190px}
+ .topbar-actions .system-state{min-width:190px}
+}
