@@ -78,3 +78,20 @@ const todayBaseIndicators=()=>{const w=document.createElement('section');w.class
 const renderView=view=>{view=view==='TODAY'?'ALL':view;const isP=view==='PORTFOLIO',isRadar=view==='RADAR',isIdeas=view==='IDEAS',isSignals=view==='SIGNALS',isMarket=view==='MARKET',isWorkspace=isP||isRadar||isIdeas||isSignals||isMarket;document.body.classList.toggle('portfolio-mode',isP);document.body.classList.toggle('radar-mode',isRadar);[summary,market,panelHeading].forEach(el=>{if(el)el.hidden=isWorkspace});if(isP){const d=portfolios.find(p=>p.portfolio_id===activePortfolio)||portfolios[0];list.classList.add('has-portfolio');list.replaceChildren(portfolioTabs(),...(d?[workspace(d)]:[]));empty.hidden=!!d;return}if(isRadar){list.classList.add('has-portfolio');list.replaceChildren(radarRiskWorkspace());empty.hidden=true;return}if(isIdeas){list.classList.remove('has-portfolio');list.replaceChildren(...ideas.map(ideaCard));itemCount.textContent=ideas.length;criticalCount.textContent=0;empty.hidden=ideas.length>0;return}if(isSignals){list.classList.add('has-portfolio');list.replaceChildren(signalsWorkspace());empty.hidden=true;return}const visible=view==='ALL'?today.filter(d=>d.context!=='MARKET'):today.filter(d=>d.context===view);list.classList.remove('has-portfolio');list.replaceChildren(...(view==='ALL'?[todayBaseIndicators()]:[]),...visible.map(createDecision));itemCount.textContent=visible.length;criticalCount.textContent=visible.filter(i=>i.priority==='CRITICAL').length;empty.hidden=visible.length>0};
 document.querySelectorAll('.view-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.view-tab').forEach(x=>x.classList.toggle('is-active',x===b));renderView(b.dataset.view)});Promise.all([applyMasterOwnerPortfolio(),loadTradeJournal()]).finally(()=>renderView('ALL'));
 })();
+;(()=>{"use strict";
+const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status");
+if(!button||!status)return;
+const endpoint=window.RADAR_CONTROL_PLANE_URL||document.querySelector('meta[name="radar-control-plane-url"]')?.content||"";
+const setState=(state,message)=>{button.dataset.state=state;button.disabled=state==="running";status.textContent=message};
+button.addEventListener("click",async()=>{
+ if(!endpoint){setState("blocked","Control Plane не подключён — запуск заблокирован");return}
+ setState("running","Запускаю обновление…");
+ try{
+  const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({command:"global_manual_refresh",mode:"manual",publish:false,source:"radar-dashboard"})});
+  if(!response.ok)throw new Error("HTTP "+response.status);
+  const result=await response.json();
+  const runId=result.run_id||result.runId||"";
+  setState("accepted",runId?"Запуск принят · "+runId:"Запуск принят");
+ }catch(error){setState("failed","Ошибка запуска · "+(error?.message||"unknown"))}
+});
+})();
