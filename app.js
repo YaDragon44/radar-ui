@@ -81,8 +81,10 @@ document.querySelectorAll('.view-tab').forEach(b=>b.onclick=()=>{document.queryS
 ;(()=>{"use strict";
 const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status"),updated=document.getElementById("global-refresh-updated");
 if(!button||!status)return;
-const workflowUrl="https://github.com/YaDragon44/radar/actions/workflows/global-manual-refresh.yml";
 const stamp=window.RADAR_UPDATED_AT||document.getElementById("updated-at")?.textContent?.trim();
 if(updated&&stamp&&stamp!=="—")updated.textContent=stamp;
-button.addEventListener("click",()=>{status.textContent="Открываю защищённый запуск…";window.open(workflowUrl,"_blank","noopener,noreferrer");});
+const fmt=v=>{const d=new Date(v);return Number.isNaN(d.getTime())?"—":new Intl.DateTimeFormat("ru-RU",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(d)};
+let poll=null;
+const check=async()=>{try{const r=await fetch("/api/refresh-status",{cache:"no-store"}),d=await r.json();if(!r.ok||!d.ok)throw new Error(d.error||"status");if(d.status==="queued"||d.status==="in_progress"){button.disabled=true;status.textContent=d.status==="queued"?"В очереди…":"Обновление выполняется…";return}button.disabled=false;if(d.status==="completed"){if(d.conclusion==="success"){status.textContent="Обновление завершено";if(updated)updated.textContent=fmt(d.updated_at);if(poll){clearInterval(poll);poll=null;setTimeout(()=>location.reload(),900)}}else{status.textContent="Ошибка обновления";if(poll){clearInterval(poll);poll=null}}}}catch(e){button.disabled=false;status.textContent="Control Plane недоступен"}};
+button.addEventListener("click",async()=>{button.disabled=true;status.textContent="Запускаю обновление…";try{const r=await fetch("/api/refresh",{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"}),d=await r.json();if(!r.ok||!d.ok)throw new Error(d.error||"dispatch");status.textContent="Запущено";poll=setInterval(check,5000);setTimeout(check,1200)}catch(e){button.disabled=false;status.textContent="Не удалось запустить"}});check();
 })();
