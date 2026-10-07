@@ -129,3 +129,11 @@
  .refresh-meta{min-width:190px}
  .topbar-actions .system-state{min-width:190px}
 }
+
+/* Explicit desktop order: manual status -> refresh button -> system state */
+@media(min-width:1200px){
+ .topbar-actions{display:grid;grid-template-columns:minmax(190px,auto) auto minmax(190px,auto);align-items:center;justify-content:end;column-gap:18px}
+ .topbar-actions .refresh-meta{grid-column:1;grid-row:1;order:initial;text-align:right;padding:3px 14px 3px 0;border-left:0;border-right:1px solid var(--line)}
+ .topbar-actions .global-refresh{grid-column:2;grid-row:1;order:initial}
+ .topbar-actions .system-state{grid-column:3;grid-row:1;order:initial}
+}
