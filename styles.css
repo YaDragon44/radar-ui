@@ -145,3 +145,22 @@
  .topbar-actions .refresh-meta{order:1;min-width:190px;text-align:right;padding:3px 14px 3px 0;border-left:0;border-right:1px solid var(--line)}
  .topbar-actions .system-state{order:3;min-width:190px}
 }
+
+/* Canonical desktop header layout — keep status, refresh and system state in non-overlapping tracks */
+@media(min-width:1200px){
+ .topbar{grid-template-columns:minmax(260px,.85fr) minmax(560px,1.35fr) minmax(430px,.9fr);column-gap:20px}
+ .topbar>nav{grid-column:2;min-width:0}
+ .topbar-actions{grid-column:3;display:grid;grid-template-columns:minmax(118px,1fr) 138px 148px;gap:10px;width:100%;min-width:0;align-items:center;justify-content:stretch}
+ .topbar-actions .refresh-meta{grid-column:1;min-width:0;max-width:none;padding:2px 10px 2px 0;border-left:0;border-right:1px solid var(--line);overflow:hidden}
+ .topbar-actions .refresh-meta>*{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .topbar-actions .global-refresh{grid-column:2;width:138px;min-width:138px;max-width:138px;margin:0}
+ .topbar-actions .system-state{grid-column:3;min-width:0;width:148px;max-width:148px;padding-left:10px;overflow:hidden}
+ .topbar-actions .system-state>div{min-width:0}
+ .topbar-actions .system-state strong,.topbar-actions .system-state small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media(min-width:1200px) and (max-width:1500px){
+ .topbar{grid-template-columns:minmax(230px,.75fr) minmax(500px,1.25fr) minmax(390px,.9fr);column-gap:14px}
+ .topbar-actions{grid-template-columns:minmax(92px,1fr) 128px 138px;gap:8px}
+ .topbar-actions .global-refresh{width:128px;min-width:128px;max-width:128px}
+ .topbar-actions .system-state{width:138px;max-width:138px;padding-left:8px}
+}
