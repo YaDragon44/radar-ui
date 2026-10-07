@@ -81,8 +81,8 @@ document.querySelectorAll('.view-tab').forEach(b=>b.onclick=()=>{document.queryS
 ;(()=>{"use strict";
 const button=document.getElementById("global-refresh"),status=document.getElementById("global-refresh-status"),updated=document.getElementById("global-refresh-updated");
 if(!button||!status)return;
-const workflowUrl="https://github.com/YaDragon44/radar/actions/workflows/global-manual-refresh.yml";
-const stamp=window.RADAR_UPDATED_AT||document.getElementById("updated-at")?.textContent?.trim();
-if(updated&&stamp&&stamp!=="—")updated.textContent=stamp;
-button.addEventListener("click",()=>{status.textContent="Открываю защищённый запуск…";window.open(workflowUrl,"_blank","noopener,noreferrer");});
+const gatewayUrl="https://hook.eu1.make.com/qhilsiv5o4lbxo5u78epji0gltuavccl";
+const syncUpdated=()=>{const stamp=window.RADAR_UPDATED_AT||document.getElementById("updated-at")?.textContent?.trim();if(updated&&stamp&&stamp!=="—")updated.textContent=stamp;};
+syncUpdated();const source=document.getElementById("updated-at");if(source)new MutationObserver(syncUpdated).observe(source,{childList:true,subtree:true,characterData:true});
+button.addEventListener("click",async()=>{if(button.disabled)return;button.disabled=true;button.setAttribute("aria-busy","true");status.textContent="Запускается…";try{const r=await fetch(gatewayUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({source:"radar-ui",action:"global_manual_refresh"})});if(!r.ok)throw new Error("HTTP "+r.status);status.textContent="Обновление запущено";}catch(e){console.error("RADAR refresh failed",e);status.textContent="Ошибка запуска";}finally{button.disabled=false;button.removeAttribute("aria-busy");}});
 })();
