@@ -9,7 +9,7 @@ import re
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree as ET
 
-URL = "https://www.cbr.ru/scripts/XML_daily.asp"
+URL = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=" + datetime.now(timezone.utc).strftime("%d/%m/%Y")
 FILE = Path("ruble-data.js")
 
 def quote(root, code):
@@ -24,6 +24,7 @@ def update(text, xml, now=None):
     root = ET.fromstring(xml)
     date = datetime.strptime(root.attrib["Date"], "%d.%m.%Y").date()
     now = now or datetime.now(timezone.utc).date()
+    print(f"CBR_SOURCE_DATE={date.isoformat()} EXPECTED_DATE={now.isoformat()}", flush=True)
     if (now - date).days < 0 or (now - date).days > 5:
         raise ValueError("CBR_SOURCE_DATE_OUT_OF_RANGE")
     usd, cny = quote(root, "USD"), quote(root, "CNY")
