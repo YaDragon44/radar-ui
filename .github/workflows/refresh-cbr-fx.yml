@@ -1,6 +1,11 @@
 name: Refresh CBR FX quote
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_cbr_fx.py'
+      - '.github/workflows/refresh-cbr-fx.yml'
 permissions:
   contents: write
 concurrency:
