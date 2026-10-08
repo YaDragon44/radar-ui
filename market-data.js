@@ -1,6 +1,6 @@
 window.RADAR_MARKET = {
   "type": "MARKET_STATE",
-  "published_at": "2026-09-23T00:00:00+03:00",
+  "published_at": "2026-10-08T00:00:00+03:00",
   "quality": "LIVE",
   "source": {
     "owner": "YaDragon44/moex-crash-radar",
@@ -9,9 +9,9 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2295.8,
+    "imoex": 2312.75,
     "crash": {
-      "score": 11.63,
+      "score": 9.07,
       "state": "NORMAL",
       "available_weight": 0.72,
       "critical_confirmations": 0,
@@ -19,9 +19,9 @@ window.RADAR_MARKET = {
     },
     "warning": {
       "exit_gate": {
-        "stage": "CASH_CONFIRMED",
-        "cash_confirmed": true,
-        "latest_5d_return_pct": 0.48,
+        "stage": "NORMAL",
+        "cash_confirmed": false,
+        "latest_5d_return_pct": 0.99,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -34,19 +34,19 @@ window.RADAR_MARKET = {
         },
         "last_event_day": "2026-08-17"
       },
-      "crash_momentum": -3.66
+      "crash_momentum": 3.72
     },
     "health": {
       "breadth": {
         "universe_size": 24,
         "usable_size": 24,
         "coverage": 1.0,
-        "pct_above_ma20": 41.67,
-        "pct_above_ma50": 50.0,
-        "pct_new_20d_lows": 12.5,
-        "pct_new_20d_highs": 8.33,
-        "advance_decline_ratio": 0.263,
-        "breadth_return_5d": 1.01,
+        "pct_above_ma20": 75.0,
+        "pct_above_ma50": 75.0,
+        "pct_new_20d_lows": 4.17,
+        "pct_new_20d_highs": 0.0,
+        "advance_decline_ratio": 0.043,
+        "breadth_return_5d": 1.29,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -61,15 +61,15 @@ window.RADAR_MARKET = {
         "quality": "LIVE"
       },
       "volatility_liquidity": {
-        "score": 17.5,
+        "score": 10.0,
         "quality": "LIVE"
       }
     },
     "distribution": {
       "usable_size": 24,
-      "pct_down_rvol": 0.0,
-      "pct_distribution_5d": 8.33,
-      "mean_down_up_volume_ratio": 0.659
+      "pct_down_rvol": 16.67,
+      "pct_distribution_5d": 16.67,
+      "mean_down_up_volume_ratio": 0.912
     },
     "positioning": {
       "ticker": "MX",
@@ -90,14 +90,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 53.04,
+        "score": 55.38,
         "quality": "LIVE",
         "key_rate": 14.0,
-        "key_rate_day": "2026-09-23",
-        "median_long_ofz_yield": 16.23,
+        "key_rate_day": "2026-10-08",
+        "median_long_ofz_yield": 16.68,
         "ofz_count": 30,
-        "rgbi_return_5d": -0.51,
-        "rgbi_return_20d": -1.39,
+        "rgbi_return_5d": -0.64,
+        "rgbi_return_20d": -2.0,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -112,8 +112,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": -0.16,
-        "cnyrub_return_20d": -0.31,
+        "cnyrub_return_5d": 2.13,
+        "cnyrub_return_20d": 1.19,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -124,96 +124,6 @@ window.RADAR_MARKET = {
       }
     },
     "history": [
-      {
-        "day": "2026-04-07",
-        "score": 40.51,
-        "state": "DEFENSIVE",
-        "close": 2797.24
-      },
-      {
-        "day": "2026-04-08",
-        "score": 53.26,
-        "state": "DEFENSIVE",
-        "close": 2765.06
-      },
-      {
-        "day": "2026-04-09",
-        "score": 68.83,
-        "state": "HIGH_RISK",
-        "close": 2733.4
-      },
-      {
-        "day": "2026-04-10",
-        "score": 66.5,
-        "state": "HIGH_RISK",
-        "close": 2725.39
-      },
-      {
-        "day": "2026-04-13",
-        "score": 76.81,
-        "state": "CRASH",
-        "close": 2722.69
-      },
-      {
-        "day": "2026-04-14",
-        "score": 71.24,
-        "state": "CRASH",
-        "close": 2725.51
-      },
-      {
-        "day": "2026-04-15",
-        "score": 55.83,
-        "state": "HIGH_RISK",
-        "close": 2740.45
-      },
-      {
-        "day": "2026-04-16",
-        "score": 53.14,
-        "state": "DEFENSIVE",
-        "close": 2741.14
-      },
-      {
-        "day": "2026-04-17",
-        "score": 57.83,
-        "state": "HIGH_RISK",
-        "close": 2723.94
-      },
-      {
-        "day": "2026-04-20",
-        "score": 38.83,
-        "state": "CAUTION",
-        "close": 2753.66
-      },
-      {
-        "day": "2026-04-21",
-        "score": 38.83,
-        "state": "CAUTION",
-        "close": 2757.7
-      },
-      {
-        "day": "2026-04-22",
-        "score": 19.64,
-        "state": "NORMAL",
-        "close": 2761.64
-      },
-      {
-        "day": "2026-04-23",
-        "score": 24.03,
-        "state": "NORMAL",
-        "close": 2771.46
-      },
-      {
-        "day": "2026-04-24",
-        "score": 58.4,
-        "state": "HIGH_RISK",
-        "close": 2733.0
-      },
-      {
-        "day": "2026-04-27",
-        "score": 61.81,
-        "state": "HIGH_RISK",
-        "close": 2732.41
-      },
       {
         "day": "2026-04-28",
         "score": 76.98,
@@ -840,72 +750,102 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-09-23",
-        "score": 11.63,
+        "score": 3.16,
         "state": "NORMAL",
-        "close": 2295.8
+        "close": 2312.27
+      },
+      {
+        "day": "2026-09-24",
+        "score": 6.7,
+        "state": "NORMAL",
+        "close": 2312.35
+      },
+      {
+        "day": "2026-09-25",
+        "score": 22.8,
+        "state": "NORMAL",
+        "close": 2273.87
+      },
+      {
+        "day": "2026-09-26",
+        "score": 9.74,
+        "state": "NORMAL",
+        "close": 2279.01
+      },
+      {
+        "day": "2026-09-27",
+        "score": 20.74,
+        "state": "NORMAL",
+        "close": 2279.86
+      },
+      {
+        "day": "2026-09-28",
+        "score": 46.65,
+        "state": "DEFENSIVE",
+        "close": 2246.3
+      },
+      {
+        "day": "2026-09-29",
+        "score": 41.47,
+        "state": "DEFENSIVE",
+        "close": 2260.06
+      },
+      {
+        "day": "2026-09-30",
+        "score": 39.74,
+        "state": "CAUTION",
+        "close": 2266.77
+      },
+      {
+        "day": "2026-10-01",
+        "score": 25.1,
+        "state": "CAUTION",
+        "close": 2278.53
+      },
+      {
+        "day": "2026-10-02",
+        "score": 20.85,
+        "state": "NORMAL",
+        "close": 2279.75
+      },
+      {
+        "day": "2026-10-03",
+        "score": 5.35,
+        "state": "NORMAL",
+        "close": 2290.18
+      },
+      {
+        "day": "2026-10-04",
+        "score": 11.31,
+        "state": "NORMAL",
+        "close": 2290.02
+      },
+      {
+        "day": "2026-10-05",
+        "score": 5.69,
+        "state": "NORMAL",
+        "close": 2321.57
+      },
+      {
+        "day": "2026-10-06",
+        "score": 5.69,
+        "state": "NORMAL",
+        "close": 2325.31
+      },
+      {
+        "day": "2026-10-07",
+        "score": 1.81,
+        "state": "NORMAL",
+        "close": 2338.21
+      },
+      {
+        "day": "2026-10-08",
+        "score": 9.07,
+        "state": "NORMAL",
+        "close": 2312.75
       }
     ],
     "imoex_history": [
-      {
-        "day": "2026-04-07",
-        "close": 2797.24
-      },
-      {
-        "day": "2026-04-08",
-        "close": 2765.06
-      },
-      {
-        "day": "2026-04-09",
-        "close": 2733.4
-      },
-      {
-        "day": "2026-04-10",
-        "close": 2725.39
-      },
-      {
-        "day": "2026-04-13",
-        "close": 2722.69
-      },
-      {
-        "day": "2026-04-14",
-        "close": 2725.51
-      },
-      {
-        "day": "2026-04-15",
-        "close": 2740.45
-      },
-      {
-        "day": "2026-04-16",
-        "close": 2741.14
-      },
-      {
-        "day": "2026-04-17",
-        "close": 2723.94
-      },
-      {
-        "day": "2026-04-20",
-        "close": 2753.66
-      },
-      {
-        "day": "2026-04-21",
-        "close": 2757.7
-      },
-      {
-        "day": "2026-04-22",
-        "close": 2761.64
-      },
-      {
-        "day": "2026-04-23",
-        "close": 2771.46
-      },
-      {
-        "day": "2026-04-24",
-        "close": 2733.0
-      },
-      {
-        "day": "2026-04-27",
-        "close": 2732.41
-      },
       {
         "day": "2026-04-28",
         "close": 2696.58
@@ -1324,7 +1264,67 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-09-23",
-        "close": 2295.8
+        "close": 2312.27
+      },
+      {
+        "day": "2026-09-24",
+        "close": 2312.35
+      },
+      {
+        "day": "2026-09-25",
+        "close": 2273.87
+      },
+      {
+        "day": "2026-09-26",
+        "close": 2279.01
+      },
+      {
+        "day": "2026-09-27",
+        "close": 2279.86
+      },
+      {
+        "day": "2026-09-28",
+        "close": 2246.3
+      },
+      {
+        "day": "2026-09-29",
+        "close": 2260.06
+      },
+      {
+        "day": "2026-09-30",
+        "close": 2266.77
+      },
+      {
+        "day": "2026-10-01",
+        "close": 2278.53
+      },
+      {
+        "day": "2026-10-02",
+        "close": 2279.75
+      },
+      {
+        "day": "2026-10-03",
+        "close": 2290.18
+      },
+      {
+        "day": "2026-10-04",
+        "close": 2290.02
+      },
+      {
+        "day": "2026-10-05",
+        "close": 2321.57
+      },
+      {
+        "day": "2026-10-06",
+        "close": 2325.31
+      },
+      {
+        "day": "2026-10-07",
+        "close": 2338.21
+      },
+      {
+        "day": "2026-10-08",
+        "close": 2312.75
       }
     ]
   }
