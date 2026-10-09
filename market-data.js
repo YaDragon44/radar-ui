@@ -9,7 +9,7 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2323.55,
+    "imoex": 2321.33,
     "crash": {
       "score": 1.81,
       "state": "NORMAL",
@@ -21,7 +21,7 @@ window.RADAR_MARKET = {
       "exit_gate": {
         "stage": "NORMAL",
         "cash_confirmed": false,
-        "latest_5d_return_pct": 1.46,
+        "latest_5d_return_pct": 1.37,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -41,12 +41,12 @@ window.RADAR_MARKET = {
         "universe_size": 24,
         "usable_size": 24,
         "coverage": 1.0,
-        "pct_above_ma20": 75.0,
-        "pct_above_ma50": 79.17,
+        "pct_above_ma20": 87.5,
+        "pct_above_ma50": 83.33,
         "pct_new_20d_lows": 4.17,
-        "pct_new_20d_highs": 25.0,
-        "advance_decline_ratio": 10.5,
-        "breadth_return_5d": 1.99,
+        "pct_new_20d_highs": 62.5,
+        "advance_decline_ratio": 23.0,
+        "breadth_return_5d": 3.84,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -68,8 +68,8 @@ window.RADAR_MARKET = {
     "distribution": {
       "usable_size": 24,
       "pct_down_rvol": 4.17,
-      "pct_distribution_5d": 16.67,
-      "mean_down_up_volume_ratio": 0.849
+      "pct_distribution_5d": 4.17,
+      "mean_down_up_volume_ratio": 0.663
     },
     "positioning": {
       "ticker": "MX",
@@ -90,14 +90,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 55.89,
+        "score": 55.49,
         "quality": "LIVE",
         "key_rate": 14.0,
         "key_rate_day": "2026-10-09",
-        "median_long_ofz_yield": 16.71,
+        "median_long_ofz_yield": 16.61,
         "ofz_count": 30,
-        "rgbi_return_5d": -0.75,
-        "rgbi_return_20d": -2.17,
+        "rgbi_return_5d": -0.69,
+        "rgbi_return_20d": -2.11,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -112,8 +112,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": 1.37,
-        "cnyrub_return_20d": 1.23,
+        "cnyrub_return_5d": 1.47,
+        "cnyrub_return_20d": 1.33,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -842,7 +842,7 @@ window.RADAR_MARKET = {
         "day": "2026-10-09",
         "score": 1.81,
         "state": "NORMAL",
-        "close": 2323.55
+        "close": 2321.33
       }
     ],
     "imoex_history": [
@@ -1324,7 +1324,7 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-10-09",
-        "close": 2323.55
+        "close": 2321.33
       }
     ]
   }
