@@ -1,6 +1,6 @@
 window.RADAR_MARKET = {
   "type": "MARKET_STATE",
-  "published_at": "2026-10-13T00:00:00+03:00",
+  "published_at": "2026-10-14T00:00:00+03:00",
   "quality": "LIVE",
   "source": {
     "owner": "YaDragon44/moex-crash-radar",
@@ -9,9 +9,9 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2424.01,
+    "imoex": 2419.28,
     "crash": {
-      "score": 1.81,
+      "score": 7.42,
       "state": "NORMAL",
       "available_weight": 0.72,
       "critical_confirmations": 0,
@@ -21,7 +21,7 @@ window.RADAR_MARKET = {
       "exit_gate": {
         "stage": "NORMAL",
         "cash_confirmed": false,
-        "latest_5d_return_pct": 4.91,
+        "latest_5d_return_pct": 0.73,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -34,19 +34,19 @@ window.RADAR_MARKET = {
         },
         "last_event_day": "2026-08-17"
       },
-      "crash_momentum": -7.26
+      "crash_momentum": 5.61
     },
     "health": {
       "breadth": {
         "universe_size": 24,
         "usable_size": 24,
         "coverage": 1.0,
-        "pct_above_ma20": 95.83,
+        "pct_above_ma20": 91.67,
         "pct_above_ma50": 87.5,
         "pct_new_20d_lows": 0.0,
-        "pct_new_20d_highs": 58.33,
-        "advance_decline_ratio": 11.0,
-        "breadth_return_5d": 6.15,
+        "pct_new_20d_highs": 29.17,
+        "advance_decline_ratio": 0.714,
+        "breadth_return_5d": 2.42,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -57,7 +57,7 @@ window.RADAR_MARKET = {
         "quality": "LIVE"
       },
       "levels_momentum": {
-        "score": 0.0,
+        "score": 10.0,
         "quality": "LIVE"
       },
       "volatility_liquidity": {
@@ -67,9 +67,9 @@ window.RADAR_MARKET = {
     },
     "distribution": {
       "usable_size": 24,
-      "pct_down_rvol": 0.0,
-      "pct_distribution_5d": 0.0,
-      "mean_down_up_volume_ratio": 0.314
+      "pct_down_rvol": 29.17,
+      "pct_distribution_5d": 12.5,
+      "mean_down_up_volume_ratio": 0.882
     },
     "positioning": {
       "ticker": "MX",
@@ -90,14 +90,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 52.61,
+        "score": 51.74,
         "quality": "LIVE",
         "key_rate": 14.0,
-        "key_rate_day": "2026-10-13",
-        "median_long_ofz_yield": 16.59,
+        "key_rate_day": "2026-10-14",
+        "median_long_ofz_yield": 16.48,
         "ofz_count": 30,
-        "rgbi_return_5d": 0.47,
-        "rgbi_return_20d": -1.19,
+        "rgbi_return_5d": 0.45,
+        "rgbi_return_20d": -0.87,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -112,8 +112,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": -1.26,
-        "cnyrub_return_20d": -0.18,
+        "cnyrub_return_5d": -1.62,
+        "cnyrub_return_20d": -0.27,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -124,12 +124,6 @@ window.RADAR_MARKET = {
       }
     },
     "history": [
-      {
-        "day": "2026-05-06",
-        "score": 72.92,
-        "state": "CRASH",
-        "close": 2632.5
-      },
       {
         "day": "2026-05-07",
         "score": 71.02,
@@ -842,14 +836,16 @@ window.RADAR_MARKET = {
         "day": "2026-10-13",
         "score": 1.81,
         "state": "NORMAL",
-        "close": 2424.01
+        "close": 2426.53
+      },
+      {
+        "day": "2026-10-14",
+        "score": 7.42,
+        "state": "NORMAL",
+        "close": 2419.28
       }
     ],
     "imoex_history": [
-      {
-        "day": "2026-05-06",
-        "close": 2632.5
-      },
       {
         "day": "2026-05-07",
         "close": 2615.33
@@ -1324,7 +1320,11 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-10-13",
-        "close": 2424.01
+        "close": 2426.53
+      },
+      {
+        "day": "2026-10-14",
+        "close": 2419.28
       }
     ]
   }
