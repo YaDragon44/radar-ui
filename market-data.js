@@ -1,6 +1,6 @@
 window.RADAR_MARKET = {
   "type": "MARKET_STATE",
-  "published_at": "2026-10-16T00:00:00+03:00",
+  "published_at": "2026-10-19T00:00:00+03:00",
   "quality": "LIVE",
   "source": {
     "owner": "YaDragon44/moex-crash-radar",
@@ -9,19 +9,19 @@ window.RADAR_MARKET = {
     "secid": "IMOEX"
   },
   "data": {
-    "imoex": 2426.27,
+    "imoex": 2423.26,
     "crash": {
-      "score": 1.81,
+      "score": 20.15,
       "state": "NORMAL",
       "available_weight": 0.72,
-      "critical_confirmations": 0,
+      "critical_confirmations": 1,
       "raw_cash_signal": false
     },
     "warning": {
       "exit_gate": {
         "stage": "NORMAL",
         "cash_confirmed": false,
-        "latest_5d_return_pct": 0.66,
+        "latest_5d_return_pct": 0.4,
         "params": {
           "score_threshold": 65.0,
           "early_warning_threshold": 56.0,
@@ -34,7 +34,7 @@ window.RADAR_MARKET = {
         },
         "last_event_day": "2026-08-17"
       },
-      "crash_momentum": 0.0
+      "crash_momentum": 7.29
     },
     "health": {
       "breadth": {
@@ -42,11 +42,11 @@ window.RADAR_MARKET = {
         "usable_size": 24,
         "coverage": 1.0,
         "pct_above_ma20": 83.33,
-        "pct_above_ma50": 87.5,
-        "pct_new_20d_lows": 0.0,
-        "pct_new_20d_highs": 45.83,
-        "advance_decline_ratio": 24.0,
-        "breadth_return_5d": 2.69,
+        "pct_above_ma50": 79.17,
+        "pct_new_20d_lows": 8.33,
+        "pct_new_20d_highs": 12.5,
+        "advance_decline_ratio": 0.2,
+        "breadth_return_5d": 0.92,
         "index_vs_breadth_divergence": false,
         "failed_secids": []
       }
@@ -57,19 +57,19 @@ window.RADAR_MARKET = {
         "quality": "LIVE"
       },
       "levels_momentum": {
-        "score": 0.0,
+        "score": 10.0,
         "quality": "LIVE"
       },
       "volatility_liquidity": {
-        "score": 10.0,
+        "score": 17.5,
         "quality": "LIVE"
       }
     },
     "distribution": {
       "usable_size": 24,
-      "pct_down_rvol": 4.17,
-      "pct_distribution_5d": 12.5,
-      "mean_down_up_volume_ratio": 0.964
+      "pct_down_rvol": 41.67,
+      "pct_distribution_5d": 58.33,
+      "mean_down_up_volume_ratio": 1.425
     },
     "positioning": {
       "ticker": "MX",
@@ -90,14 +90,14 @@ window.RADAR_MARKET = {
     },
     "context": {
       "rate_ofz": {
-        "score": 51.24,
+        "score": 49.43,
         "quality": "LIVE",
         "key_rate": 14.0,
-        "key_rate_day": "2026-10-16",
-        "median_long_ofz_yield": 16.46,
+        "key_rate_day": "2026-10-19",
+        "median_long_ofz_yield": 16.43,
         "ofz_count": 30,
-        "rgbi_return_5d": 0.14,
-        "rgbi_return_20d": -0.54,
+        "rgbi_return_5d": 0.21,
+        "rgbi_return_20d": 0.47,
         "component_coverage": 1.0,
         "note": "Relative Rate/OFZ stress composite; not a probability and not Crowd Score.",
         "sources": [
@@ -112,8 +112,8 @@ window.RADAR_MARKET = {
         "brent_secid": null,
         "brent_return_5d": null,
         "brent_return_20d": null,
-        "cnyrub_return_5d": -1.74,
-        "cnyrub_return_20d": -0.97,
+        "cnyrub_return_5d": -1.06,
+        "cnyrub_return_20d": -0.92,
         "component_coverage": 0.5,
         "latest_day": null,
         "note": "DATA_INSUFFICIENT: both Brent and CNYRUB, freshness <=5d and >=75% component coverage are required.",
@@ -124,24 +124,6 @@ window.RADAR_MARKET = {
       }
     },
     "history": [
-      {
-        "day": "2026-05-11",
-        "score": 34.97,
-        "state": "CAUTION",
-        "close": 2656.91
-      },
-      {
-        "day": "2026-05-12",
-        "score": 31.35,
-        "state": "CAUTION",
-        "close": 2689.96
-      },
-      {
-        "day": "2026-05-13",
-        "score": 26.99,
-        "state": "CAUTION",
-        "close": 2694.72
-      },
       {
         "day": "2026-05-14",
         "score": 39.83,
@@ -842,22 +824,28 @@ window.RADAR_MARKET = {
         "day": "2026-10-16",
         "score": 1.81,
         "state": "NORMAL",
-        "close": 2426.27
+        "close": 2431.07
+      },
+      {
+        "day": "2026-10-17",
+        "score": 1.81,
+        "state": "NORMAL",
+        "close": 2447.66
+      },
+      {
+        "day": "2026-10-18",
+        "score": 12.24,
+        "state": "NORMAL",
+        "close": 2450.46
+      },
+      {
+        "day": "2026-10-19",
+        "score": 20.15,
+        "state": "NORMAL",
+        "close": 2423.26
       }
     ],
     "imoex_history": [
-      {
-        "day": "2026-05-11",
-        "close": 2656.91
-      },
-      {
-        "day": "2026-05-12",
-        "close": 2689.96
-      },
-      {
-        "day": "2026-05-13",
-        "close": 2694.72
-      },
       {
         "day": "2026-05-14",
         "close": 2658.84
@@ -1324,7 +1312,19 @@ window.RADAR_MARKET = {
       },
       {
         "day": "2026-10-16",
-        "close": 2426.27
+        "close": 2431.07
+      },
+      {
+        "day": "2026-10-17",
+        "close": 2447.66
+      },
+      {
+        "day": "2026-10-18",
+        "close": 2450.46
+      },
+      {
+        "day": "2026-10-19",
+        "close": 2423.26
       }
     ]
   }
